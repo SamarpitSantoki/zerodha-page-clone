@@ -4,8 +4,12 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 First, run the development server:
 
+Delete key.pem and cert.pem
+
 ```bash
-npm run dev
+mkcert -key-file key.pem -cert-file cert.pem
+npm i
+npm run start
 # or
 yarn dev
 ```
