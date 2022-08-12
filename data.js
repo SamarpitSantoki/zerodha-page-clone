@@ -3,7 +3,7 @@ export const cards = [
   {
     product: "MIS",
     tradingsymbol: "BANKNIFTY2281137800CE",
-    expiryDate: 4,
+    expiryDate: 18,
     expiryMonth: 8,
     placePrice: 37700,
     option: "CE",
@@ -11,7 +11,7 @@ export const cards = [
     Qty: 0,
     LTP: 348.0,
     Avg: 0.0,
-    pl: -6787.5,
+    pl: 2450.5,
     Chg: 0.0,
     status: "closed",
   },

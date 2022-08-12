@@ -107,64 +107,54 @@ function App() {
                 <img src="kite-logo.svg" alt="Kite logo" />
               </a>
               <div className="app-nav">
-                <a href="https://kite.zerodha.com/dashboard" className="">
+                {" "}
+                <a href="/dashboard" className="">
                   <span>Dashboard</span>
-                </a>
-                <a
-                  href="https://kite.zerodha.com/orders"
-                  className="orders-nav-item"
-                >
-                  <span>Orders</span>
-                </a>
-                <a href="https://kite.zerodha.com/holdings" className="">
+                </a>{" "}
+                <a href="/orders" className="orders-nav-item">
+                  <span>Orders</span>{" "}
+                </a>{" "}
+                <a href="/holdings" className="">
                   <span>Holdings</span>
-                </a>
+                </a>{" "}
                 <a
-                  href="https://kite.zerodha.com/positions"
-                  className="router-link-exact-active router-link-active"
+                  href="/positions"
                   aria-current="page"
+                  className="router-link-exact-active router-link-active"
                 >
                   <span>Positions</span>
-                </a>
-                <a href="https://kite.zerodha.com/funds" className="">
+                </a>{" "}
+                <a href="/funds" className="">
                   <span>Funds</span>
-                </a>
-                <a href="https://kite.zerodha.com/apps" className="">
+                </a>{" "}
+                <a href="/apps" className="">
                   <span>Apps</span>
                 </a>
               </div>
 
               <div className="right-nav">
                 <div className="user-nav perspective">
-                  <a
-                    href="https://kite.zerodha.com/"
-                    className="dropdown-label"
-                  >
-                    <div id="avatar-44">
-                      <div
+                  <a href="" className="dropdown-label">
+                    <div id="avatar-80">
+                      {" "}
+                      <img
+                        src="https://s3.ap-south-1.amazonaws.com/zerodha-kite-blobs/avatars/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png"
+                        height="25"
+                        width="25"
                         className="avatar"
                         style={{
-                          width: "33px",
-                          height: "33px",
+                          width: "25px",
+                          height: "25px",
                           borderRadius: "50%",
-                          display: "flex",
-                          justifyContent: "center",
-                          fontSize: "9px",
-                          fontWeight: "300",
-                          lineHeight: "33px",
+                          textAlign: "center",
+                          verticalAlign: "middle",
+                          background:
+                            'url("https://s3.ap-south-1.amazonaws.com/zerodha-kite-blobs/avatars/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png") 0% 0% / 25px 25px no-repeat content-box',
                         }}
-                      >
-                        <span style={{ marginTop: "3px" }}>
-                          <img
-                            src="/LogoMark.jpg"
-                            alt="logomark"
-                            width={"40px"}
-                          />
-                        </span>
-                      </div>
-                    </div>
-                    <span className="user-id">PR2408</span>
-                  </a>
+                      />
+                    </div>{" "}
+                    <span className="user-id">VZ7786</span>
+                  </a>{" "}
                 </div>
               </div>
             </div>
@@ -532,9 +522,9 @@ function App() {
                                     style={{ height: "9px" }}
                                   />
                                 </span>
-                                <span>Analytics</span>
+                                <span> Analytics</span>{" "}
                               </a>
-                            </span>
+                            </span>{" "}
                             <span className="download">
                               <span className="download-csv link">
                                 <span className="icon icon-download"></span>
@@ -552,9 +542,9 @@ function App() {
                                       id="selectall"
                                       type="checkbox"
                                       className="su-checkbox"
-                                    />
+                                    />{" "}
                                     <label
-                                      htmlFor="selectall"
+                                      for="selectall"
                                       className="su-checkbox-label"
                                     >
                                       <span className="su-checkbox-box">
@@ -562,31 +552,81 @@ function App() {
                                       </span>
                                     </label>
                                   </div>
-                                </th>
-                                <th className="product sortable">
+                                </th>{" "}
+                                <th className="product sortable sortable">
                                   <span>Product</span>
                                 </th>
-                                <th className="instrument sortable">
+                                <th className="instrument sortable sortable">
                                   <span>Instrument</span>
                                 </th>
-                                <th className="quantity right sortable">
+                                <th className="quantity right sortable sortable">
                                   <span>Qty.</span>
                                 </th>
-                                <th className="average-price right sortable">
+                                <th className="average-price right sortable sortable">
                                   <span>Avg.</span>
                                 </th>
-                                <th className="last-price right sortable">
+                                <th className="last-price right sortable sortable">
                                   <span>LTP</span>
                                 </th>
-                                <th className="pnl right sortable">
+                                <th className="pnl right sortable sortable">
                                   <span>P&amp;L</span>
                                 </th>
-                                <th className="change-percent right sortable">
+                                <th className="change-percent right  sortable">
                                   <span>Chg.</span>
                                 </th>
                               </tr>
                             </thead>
                             <tbody>
+                              {/* <tr class="">
+                                <td class="select">
+                                  <div class="su-checkbox-group">
+                                    <input
+                                      id="position.12175106.MIS2"
+                                      type="checkbox"
+                                      disabled="disabled"
+                                      class="su-checkbox"
+                                    />{" "}
+                                    <label
+                                      for="position.12175106.MIS2"
+                                      class="su-checkbox-label"
+                                    >
+                                      <span class="su-checkbox-box">
+                                        <span class="su-checkbox-tick"></span>
+                                      </span>
+                                    </label>
+                                  </div>
+                                </td>{" "}
+                                <td class="closed greyed product">
+                                  <span class="text-label small aqua amber">
+                                    MIS
+                                  </span>
+                                </td>{" "}
+                                <td class="closed greyed instrument">
+                                  <span class="tradingsymbol">
+                                    BANKNIFTY 18
+                                    <sup>
+                                      th <span class="weekly">w</span>
+                                    </sup>{" "}
+                                    AUG 39000 PE
+                                  </span>{" "}
+                                  <span class="exchange text-xxsmall dim">
+                                    NFO
+                                  </span>{" "}
+                                </td>{" "}
+                                <td class="closed greyed quantity right">0</td>{" "}
+                                <td class="closed greyed average-price right">
+                                  314.00
+                                </td>{" "}
+                                <td class="closed greyed last-price right">
+                                  299.20
+                                </td>{" "}
+                                <td class="text-green closed greyed pnl right">
+                                  <span>+2,475.00</span>
+                                </td>
+                                <td class="closed greyed change-percent change-percent right">
+                                  <span>-14.00%</span>
+                                </td>
+                              </tr> */}
                               {cards.map((card) => {
                                 if (card.status !== "closed") {
                                   return (
@@ -718,9 +758,9 @@ function App() {
                                             >
                                               <span className="icon icon-ellipsis"></span>
                                             </span>
-                                          </div>{" "}
+                                          </div>
                                         </div>
-                                      </td>
+                                      </td>{" "}
                                       <td className="closed greyed quantity right">
                                         {card.Qty}
                                       </td>
