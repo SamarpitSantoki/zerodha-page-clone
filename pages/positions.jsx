@@ -23,7 +23,7 @@ function App() {
 
   if (initialLoader) {
     return (
-      <>
+      <div className="positionsPage">
         <Head>
           <title>Positions / Kite</title>
         </Head>
@@ -47,11 +47,11 @@ function App() {
             <i></i>
           </span>
         </div>
-      </>
+      </div>
     );
   }
   return (
-    <>
+    <div className="positionsPage">
       <Head>
         <title>Positions / Kite</title>
       </Head>
@@ -1355,7 +1355,7 @@ function App() {
           <div></div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

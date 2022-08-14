@@ -1,5 +1,6 @@
 import Head from "next/head";
-import "../css/positions.css";
+import "../styles/positions.scss";
+import "../styles/pl.scss";
 function MyApp({ Component, pageProps }) {
   return (
     <>
