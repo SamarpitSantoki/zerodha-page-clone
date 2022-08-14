@@ -4,7 +4,7 @@ const next = require("next");
 const fs = require("fs");
 const hostname = "kite.zerodha.com";
 const dev = process.env.NODE_ENV !== "production";
-const app = next({ dev });
+const app = next({ dev, hostname });
 const handle = app.getRequestHandler();
 const httpsOptions = {
   key: fs.readFileSync("./key.pem"),

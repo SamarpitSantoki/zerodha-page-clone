@@ -342,6 +342,63 @@ function App() {
           </div>
           <div className="container-right positions">
             <div className="page-content">
+              {/* <div className="notice layer-2">
+                <ul>
+                  <li>
+                    <span>
+                      Markets will remain closed on the 15th August, 2022 on
+                      account of Independence Day.{" "}
+                      <a
+                        href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
+                        target="_blank"
+                      >
+                        Read more
+                      </a>
+                      .
+                    </span>
+                  </li>
+                  <li>
+                    <span>
+                      Due to the settlement holiday on 16th August, 2022{" "}
+                      <a
+                        href="https://zerodha.com/marketintel/bulletin/329589/settlement-holiday-on-account-of-parsi-new-year-on-august-16-2022"
+                        target="_blank"
+                      >
+                        Parsi New year
+                      </a>
+                      , your account balance on Kite will not include the
+                      intraday profits made in equity segments on the 11th and
+                      the 12th of August, 2022. It will be updated on the 17th
+                      and 18th of August, 2022, respectively. You can check your
+                      fund statement on{" "}
+                      <a
+                        href="https://console.zerodha.com/funds/statement"
+                        target="_blank"
+                      >
+                        Console
+                      </a>{" "}
+                      to see the unsettled credits in your account.
+                    </span>
+                  </li>
+                </ul>
+              </div> */}
+              <div className="notice layer-2">
+                <ul>
+                  <li>
+                    <span>
+                      Markets will remain closed on the 15th August, 2022 on
+                      account of Independence Day.{" "}
+                      <a
+                        href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
+                        target="_blank"
+                      >
+                        Read more
+                      </a>
+                      .
+                    </span>
+                  </li>
+                </ul>
+              </div>
               <div className="positions">
                 {positionsLoading && (
                   <header className="row data-table-header">
@@ -577,53 +634,53 @@ function App() {
                               </tr>
                             </thead>
                             <tbody>
-                              {/* <tr class="">
-                                <td class="select">
-                                  <div class="su-checkbox-group">
+                              {/* <tr className="">
+                                <td className="select">
+                                  <div className="su-checkbox-group">
                                     <input
                                       id="position.12175106.MIS2"
                                       type="checkbox"
                                       disabled="disabled"
-                                      class="su-checkbox"
+                                      className="su-checkbox"
                                     />{" "}
                                     <label
                                       for="position.12175106.MIS2"
-                                      class="su-checkbox-label"
+                                      className="su-checkbox-label"
                                     >
-                                      <span class="su-checkbox-box">
-                                        <span class="su-checkbox-tick"></span>
+                                      <span className="su-checkbox-box">
+                                        <span className="su-checkbox-tick"></span>
                                       </span>
                                     </label>
                                   </div>
                                 </td>{" "}
-                                <td class="closed greyed product">
-                                  <span class="text-label small aqua amber">
+                                <td className="closed greyed product">
+                                  <span className="text-label small aqua amber">
                                     MIS
                                   </span>
                                 </td>{" "}
-                                <td class="closed greyed instrument">
-                                  <span class="tradingsymbol">
+                                <td className="closed greyed instrument">
+                                  <span className="tradingsymbol">
                                     BANKNIFTY 18
                                     <sup>
-                                      th <span class="weekly">w</span>
+                                      th <span className="weekly">w</span>
                                     </sup>{" "}
                                     AUG 39000 PE
                                   </span>{" "}
-                                  <span class="exchange text-xxsmall dim">
+                                  <span className="exchange text-xxsmall dim">
                                     NFO
                                   </span>{" "}
                                 </td>{" "}
-                                <td class="closed greyed quantity right">0</td>{" "}
-                                <td class="closed greyed average-price right">
+                                <td className="closed greyed quantity right">0</td>{" "}
+                                <td className="closed greyed average-price right">
                                   314.00
                                 </td>{" "}
-                                <td class="closed greyed last-price right">
+                                <td className="closed greyed last-price right">
                                   299.20
                                 </td>{" "}
-                                <td class="text-green closed greyed pnl right">
+                                <td className="text-green closed greyed pnl right">
                                   <span>+2,475.00</span>
                                 </td>
-                                <td class="closed greyed change-percent change-percent right">
+                                <td className="closed greyed change-percent change-percent right">
                                   <span>-14.00%</span>
                                 </td>
                               </tr> */}
@@ -638,15 +695,15 @@ function App() {
                                       </td>
                                       <td className="open instrument">
                                         <span className="tradingsymbol">
-                                          {card.expiryDate
-                                            ? card.tradingsymbol.slice(
-                                                0,
-                                                card.tradingsymbol.search(/\d/)
-                                              ) + " "
-                                            : card.tradingsymbol}
+                                          {card.tradingsymbol}{" "}
                                           {card.expiryDate && (
                                             <>
-                                              {card.expiryDate}
+                                              {card.expiryDate.toLocaleString(
+                                                "en-IN",
+                                                {
+                                                  minimumIntegerDigits: 2,
+                                                }
+                                              )}
                                               <sup>
                                                 th{" "}
                                                 <span className="weekly">
@@ -722,15 +779,15 @@ function App() {
                                       </td>
                                       <td className="closed greyed instrument">
                                         <span className="tradingsymbol">
-                                          {card.expiryDate
-                                            ? card.tradingsymbol.slice(
-                                                0,
-                                                card.tradingsymbol.search(/\d/)
-                                              ) + " "
-                                            : card.tradingsymbol}
+                                          {card.tradingsymbol}{" "}
                                           {card.expiryDate && (
                                             <>
-                                              {card.expiryDate}
+                                              {card.expiryDate.toLocaleString(
+                                                "en-IN",
+                                                {
+                                                  minimumIntegerDigits: 2,
+                                                }
+                                              )}
                                               <sup>
                                                 th{" "}
                                                 <span className="weekly">
@@ -910,15 +967,15 @@ function App() {
                                       </td>
                                       <td className="open instrument">
                                         <span className="tradingsymbol">
-                                          {card.expiryDate
-                                            ? card.tradingsymbol.slice(
-                                                0,
-                                                card.tradingsymbol.search(/\d/)
-                                              ) + " "
-                                            : card.tradingsymbol}
+                                          {card.tradingsymbol}{" "}
                                           {card.expiryDate && (
                                             <>
-                                              {card.expiryDate}
+                                              {card.expiryDate.toLocaleString(
+                                                "en-IN",
+                                                {
+                                                  minimumIntegerDigits: 2,
+                                                }
+                                              )}
                                               <sup>
                                                 th{" "}
                                                 <span className="weekly">
@@ -988,15 +1045,15 @@ function App() {
                                       </td>
                                       <td className="closed greyed instrument">
                                         <span className="tradingsymbol">
-                                          {card.expiryDate
-                                            ? card.tradingsymbol.slice(
-                                                0,
-                                                card.tradingsymbol.search(/\d/)
-                                              ) + " "
-                                            : card.tradingsymbol}
+                                          {card.tradingsymbol}{" "}
                                           {card.expiryDate && (
                                             <>
-                                              {card.expiryDate}
+                                              {card.expiryDate.toLocaleString(
+                                                "en-IN",
+                                                {
+                                                  minimumIntegerDigits: 2,
+                                                }
+                                              )}
                                               <sup>
                                                 th{" "}
                                                 <span className="weekly">

@@ -2,8 +2,8 @@
 export const cards = [
   {
     product: "MIS",
-    tradingsymbol: "BANKNIFTY2281137800CE",
-    expiryDate: 18,
+    tradingsymbol: "BANKNIFTY",
+    expiryDate: null,
     expiryMonth: 8,
     placePrice: 37700,
     option: "CE",
@@ -17,7 +17,7 @@ export const cards = [
   },
   {
     product: "MIS",
-    tradingsymbol: "BANKNIFTY2281137800CE",
+    tradingsymbol: "BANKNIFTY",
     expiryDate: 4,
     expiryMonth: 8,
     placePrice: 37700,
@@ -32,8 +32,8 @@ export const cards = [
   },
   {
     product: "MIS",
-    tradingsymbol: "BANKNIFTY2281137800CE",
-    expiryDate: 4,
+    tradingsymbol: "BANKNIFTY",
+    expiryDate: 18,
     expiryMonth: 8,
     placePrice: 37800,
     option: "CE",
