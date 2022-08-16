@@ -122,24 +122,23 @@
 .full-height, body, html {
   height: 100%;
 }
-html{
-  font-size: 87.5%;
-}
 
 body{
   margin: 0;
+}
+.plPage{
+  
   font-size: 87.5%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  
   letter-spacing: 0;
   color: #444;
   line-height: 1.7em;
   min-width: 300px;
   font-weight: 400;
-  font-family: Inter, sans-serif;
-}
-.plPage{
-  
+  font-family: "Inter", sans-serif;
+  #app{
+    font-size: 14px;
+  }
 [class*=" icon-"]:before, [class^="icon-"]:before {
   font-family: fontello;
   font-style: normal;
@@ -1373,7 +1372,7 @@ a.text-light:hover {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1 {
@@ -2268,7 +2267,7 @@ button[data-balloon] {
 
 [data-balloon] {
   &:after, &:before, &:hover:before {
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
   }
 
@@ -3592,12 +3591,12 @@ body {
   line-height: 1.7em;
   min-width: 300px;
   font-weight: 400;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 400;
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 h1 {
@@ -4482,7 +4481,7 @@ button[data-balloon] {
 
 [data-balloon] {
   &:after, &:before, &:hover:before {
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-weight: 600;
   }
 
@@ -7095,7 +7094,7 @@ button[data-balloon] {
 
       .mx-calendar, .mx-datepicker {
         color: #444;
-        font-family: Inter, sans-serif;
+        font-family: "Inter", sans-serif;
         max-width: 100%;
       }
 
@@ -7930,7 +7929,7 @@ button[data-balloon] {
   }
 
   .litepicker {
-    font-family: Inter, "sans-serif";
+    font-family: "Inter", "sans-serif";
     --litepicker-day-width:13.5vw;
     --litepicker-month-width:calc(var(--litepicker-day-width) * 7);
     font-size: 1em;
@@ -10213,12 +10212,12 @@ p.legend-name {
   }
 
   text {
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
   }
 }
 
 #eqAcValueChart text {
-  font-family: Inter, sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 #comAcValueChart .zoom, #eqAcValueChart .zoom {
@@ -20469,7 +20468,7 @@ fieldset[disabled] .multiselect {
 
 text {
   &.calendar-heatmap-legend-text, &.day-initial, &.month-name {
-    font-family: Inter, sans-serif;
+    font-family: "Inter", sans-serif;
     font-size: 10px;
   }
 }

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
 import { useState } from "react";
-import { cards, headerData, SideBarData } from "../data";
+import { cards, EventMessage, headerData, SideBarData } from "../data";
 
 function App() {
   const [positionsLoading, setPositionLoading] = useState(true);
@@ -382,23 +382,24 @@ function App() {
                   </li>
                 </ul>
               </div> */}
-              <div className="notice layer-2">
-                <ul>
-                  <li>
-                    <span>
-                      Markets will remain closed on the 15th August, 2022 on
-                      account of Independence Day.{" "}
-                      <a
-                        href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
-                        target="_blank"
-                      >
-                        Read more
-                      </a>
-                      .
-                    </span>
-                  </li>
-                </ul>
-              </div>
+              {EventMessage && (
+                <div className="notice layer-2">
+                  <ul>
+                    <li>
+                      <span>
+                        {EventMessage}{" "}
+                        <a
+                          href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
+                          target="_blank"
+                        >
+                          Read more
+                        </a>
+                        .
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              )}
               <div className="positions">
                 {positionsLoading && (
                   <header className="row data-table-header">
@@ -688,6 +689,23 @@ function App() {
                                 if (card.status !== "closed") {
                                   return (
                                     <tr className="">
+                                      <td className="select">
+                                        <div className="su-checkbox-group">
+                                          <input
+                                            id="position.136402436.MIS1"
+                                            type="checkbox"
+                                            className="su-checkbox"
+                                          />
+                                          <label
+                                            htmlFor="position.136402436.MIS1"
+                                            className="su-checkbox-label"
+                                          >
+                                            <span className="su-checkbox-box">
+                                              <span className="su-checkbox-tick"></span>
+                                            </span>
+                                          </label>
+                                        </div>
+                                      </td>
                                       <td className="open product">
                                         <span className="text-label small aqua sienna-brown">
                                           {card.product}
@@ -733,7 +751,13 @@ function App() {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
-                                      <td className="text-red open pnl right">
+                                      <td
+                                        className={`${
+                                          card.pl > 0
+                                            ? "text-green"
+                                            : "text-red"
+                                        } open pnl right`}
+                                      >
                                         <span>
                                           {card.pl > 0 && "+"}
                                           {card.pl.toLocaleString("en-IN", {
@@ -943,23 +967,6 @@ function App() {
                                 if (card.status !== "closed") {
                                   return (
                                     <tr className="">
-                                      <td className="select">
-                                        <div className="su-checkbox-group">
-                                          <input
-                                            id="position.151064324.CNC0"
-                                            type="checkbox"
-                                            className="su-checkbox"
-                                          />
-                                          <label
-                                            htmlFor="position.151064324.CNC0"
-                                            className="su-checkbox-label"
-                                          >
-                                            <span className="su-checkbox-box">
-                                              <span className="su-checkbox-tick"></span>
-                                            </span>
-                                          </label>
-                                        </div>
-                                      </td>
                                       <td className="open product">
                                         <span className="text-label small aqua sienna-brown">
                                           {card.product}
@@ -1016,7 +1023,13 @@ function App() {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
-                                      <td className="text-red open pnl right">
+                                      <td
+                                        className={`${
+                                          card.pl > 0
+                                            ? "text-green"
+                                            : "text-red"
+                                        } open pnl right`}
+                                      >
                                         <span>
                                           {card.pl > 0 && "+"}
 

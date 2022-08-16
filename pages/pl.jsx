@@ -1,9 +1,16 @@
+import { useEffect, useState } from "react";
+import DateRangePicker from "@wojtekmaj/react-daterange-picker/dist/entry.nostyle";
 function pl() {
+  const [value, onChange] = useState([new Date(), new Date()]);
+
+  useEffect(() => {
+    document.querySelector("html").style.fontSize = "87.5%";
+  }, []);
   return (
     <div className="plPage">
       <div id="init_loader" className="loader" style={{ display: "none" }}>
         <div className="spinner">
-          <img src="./P&amp;L _ Console_Dont_files/logo.png" />
+          <img src="/logo.png" />
           <div className="su-loader">
             <span className="dot-spinner">
               <i></i>
@@ -28,30 +35,29 @@ function pl() {
                 <div id="nav-icon4">
                   <span></span> <span></span> <span></span>
                 </div>
-              </a>
-
+              </a>{" "}
               <div className="app-nav hide-on-mobile">
                 <a href="https://console.zerodha.com/dashboard" className="">
-                  <span>Dashboard</span>
+                  <span>Dashboard </span>
                 </a>{" "}
                 <a
                   href="https://console.zerodha.com/"
                   className="dropdown-label portfolio-label"
                 >
                   <span className="portfolio-id">Portfolio</span>
-                </a>
+                </a>{" "}
                 <a
                   href="https://console.zerodha.com/"
                   className="dropdown-label reports-label router-link-active"
                 >
                   <span className="reports-id">Reports</span>
-                </a>
+                </a>{" "}
                 <a
                   href="https://console.zerodha.com/"
                   className="dropdown-label funds-label"
                 >
                   <span className="funds-id">Funds</span>
-                </a>
+                </a>{" "}
                 <a href="https://console.zerodha.com/account" className="">
                   <span>Account</span>
                 </a>
@@ -78,7 +84,7 @@ function pl() {
                             'url("https://s3.ap-south-1.amazonaws.com/zerodha-kite-blobs/avatars/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png") 0% 0% / 25px 25px no-repeat content-box',
                         }}
                       />
-                    </div>{" "}
+                    </div>
                     <span id="userDetails" name="Vraj">
                       VZ7786
                     </span>
@@ -87,13 +93,12 @@ function pl() {
               </div>
             </div>
           </div>
-        </div>
+        </div>{" "}
         <div className="wrapper">
           <div className="page-content ">
             <div className="page-container pnl">
               <h1>
-                <img src="/bar-chart.svg" className="pnl-head-icon" />
-                P&amp;L
+                <img src="/bar-chart.svg" className="pnl-head-icon" /> P&amp;L
               </h1>
               <hr className="header-hr" />
 
@@ -131,8 +136,8 @@ function pl() {
                           <input
                             type="text"
                             placeholder="eg: RELIANCE, INFY"
-                            autocorrect="off"
-                            maxlength="25"
+                            autoCorrect="off"
+                            maxLength="25"
                             step="1"
                             noerror="true"
                             staticlabel="true"
@@ -146,7 +151,7 @@ function pl() {
                     </div>
                     <div className="two-half columns su-input-group  su-static-label">
                       <label className="su-input-label">Date range</label>
-                      <div
+                      {/* <div
                         className="mx-datepicker mx-datepicker-range"
                         not-before="2017-04-01"
                         not-after="2022-12-31"
@@ -155,7 +160,7 @@ function pl() {
                           <input
                             name="date"
                             type="text"
-                            autocomplete="off"
+                            autoComplete="off"
                             placeholder="Select range"
                             className="mx-input"
                           />{" "}
@@ -186,10 +191,10 @@ function pl() {
                               <text
                                 x="50%"
                                 y="135"
-                                font-size="90"
-                                stroke-width="1"
-                                text-anchor="middle"
-                                dominant-baseline="middle"
+                                fontSize="90"
+                                strokeWidth="1"
+                                textAnchor="middle"
+                                dominantBaseline="middle"
                               >
                                 9
                               </text>
@@ -1272,6 +1277,9 @@ function pl() {
                             </div>
                           </div>
                         </div>
+                      </div> */}
+                      <div>
+                        <DateRangePicker onChange={onChange} value={value} />
                       </div>
                     </div>
                     <div className="two-half columns filter-component su-input-group  su-static-label">
@@ -1292,7 +1300,7 @@ function pl() {
                                     <input
                                       data-v-61d92e31=""
                                       placeholder="Filter by tags"
-                                      maxlength="20"
+                                      maxLength="20"
                                       type="text"
                                       size="1"
                                       className="ti-new-tag-input ti-valid"
@@ -5690,7 +5698,7 @@ function pl() {
                 <div className="search-table">
                   <span className="icon icon-search"></span>{" "}
                   <input
-                    maxlength="15"
+                    maxLength="15"
                     type="text"
                     placeholder="Search"
                     className="filter-input"
