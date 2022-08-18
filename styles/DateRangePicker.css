@@ -1,206 +1,492 @@
-.react-daterange-picker {
-  display: inline-flex;
-  position: relative;
-}
-.react-daterange-picker,
-.react-daterange-picker *,
-.react-daterange-picker *:before,
-.react-daterange-picker *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.react-daterange-picker--disabled {
-  background-color: #f0f0f0;
-  color: #6d6d6d;
-}
-.react-daterange-picker__wrapper {
+.App {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.datePickerWarp {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  border: thin solid gray;
 }
-.react-daterange-picker__inputGroup {
-  min-width: calc((4px * 3) +  0.54em * 8  +  0.217em * 2);
-  height: 100%;
-  flex-grow: 1;
-  padding: 0 2px;
-  box-sizing: content-box;
-}
-.react-daterange-picker__inputGroup__divider {
-  padding: 1px 0;
-  white-space: pre;
-}
-.react-daterange-picker__inputGroup__input {
-  min-width: 0.54em;
-  height: 100%;
-  position: relative;
-  padding: 0 1px;
-  border: 0;
-  background: none;
-  font: inherit;
-  box-sizing: content-box;
-  -moz-appearance: textfield;
-}
-.react-daterange-picker__inputGroup__input::-webkit-outer-spin-button,
-.react-daterange-picker__inputGroup__input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-.react-daterange-picker__inputGroup__input:invalid {
-  background: rgba(255, 0, 0, 0.1);
-}
-.react-daterange-picker__inputGroup__input--hasLeadingZero {
-  margin-left: -0.54em;
-  padding-left: calc(1px +  0.54em);
-}
-.react-daterange-picker__button {
-  border: 0;
-  background: transparent;
-  padding: 4px 6px;
-}
-.react-daterange-picker__button:enabled {
-  cursor: pointer;
-}
-.react-daterange-picker__button:enabled:hover .react-daterange-picker__button__icon,
-.react-daterange-picker__button:enabled:focus .react-daterange-picker__button__icon {
-  stroke: #0078d7;
-}
-.react-daterange-picker__button:disabled .react-daterange-picker__button__icon {
-  stroke: #6d6d6d;
-}
-.react-daterange-picker__button svg {
-  display: inherit;
-}
-.react-daterange-picker__calendar {
-  width: 350px;
-  max-width: 100vw;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  z-index: 1;
-}
-.react-daterange-picker__calendar--closed {
-  display: none;
-}
-.react-daterange-picker__calendar .react-calendar {
-  border-width: thin;
-}
-.react-calendar {
-  width: 350px;
-  max-width: 100%;
-  background: white;
-  border: 1px solid #a0a096;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.125em;
-}
-.react-calendar--doubleView {
-  width: 700px;
-}
-.react-calendar--doubleView .react-calendar__viewContainer {
-  display: flex;
-  margin: -0.5em;
-}
-.react-calendar--doubleView .react-calendar__viewContainer > * {
-  width: 50%;
-  margin: 0.5em;
-}
-.react-calendar,
-.react-calendar *,
-.react-calendar *:before,
-.react-calendar *:after {
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-}
-.react-calendar button {
-  margin: 0;
-  border: 0;
-  outline: none;
-}
-.react-calendar button:enabled:hover {
-  cursor: pointer;
-}
-.react-calendar__navigation {
-  display: flex;
-  height: 44px;
-  margin-bottom: 1em;
-}
-.react-calendar__navigation button {
-  min-width: 44px;
-  background: none;
-}
-.react-calendar__navigation button:disabled {
-  background-color: #f0f0f0;
-}
-.react-calendar__navigation button:enabled:hover,
-.react-calendar__navigation button:enabled:focus {
-  background-color: #e6e6e6;
-}
-.react-calendar__month-view__weekdays {
-  text-align: center;
-  text-transform: uppercase;
-  font-weight: bold;
-  font-size: 0.75em;
-}
-.react-calendar__month-view__weekdays__weekday {
-  padding: 0.5em;
-}
-.react-calendar__month-view__weekNumbers .react-calendar__tile {
+
+.pickerHeader {
+  width: 100%;
+  height: 54px;
+  border-bottom: 1px solid #DDDDDD;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 0.75em;
+  box-sizing: border-box;
+}
+
+.tabBox {
+  height: 30px;
+  background: #F2F3F5;
+  border-radius: 2px;
+  display: inline-flex;
+  box-sizing: border-box;
+  width: fit-content;
+  border: 2px solid transparent;
+}
+
+.tabItem {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 12px;
+  border-radius: 4px;
+  transition: all 0.2s ease 0s;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 24px;
+  height: 26px;
+  color: #444444;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+
+.tabItem:hover {
+  background-color: rgb(243, 244, 246);
+}
+
+.tabBox .tabActive {
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  border-radius: 2px;
+}
+
+.dayPicker {
+  display: flex;
+  justify-content: center;
+}
+
+.dayPanel {
+  width: 285px;
+}
+
+.dayOfWeek {
+  width: 285px;
+  padding: 0 25px 0 15px;
+  display: flex;
+  box-sizing: border-box;
+}
+
+.dayOfWeekName {
+  flex: 1;
+  font-weight: 400;
+  text-align: center;
+  height: 16px;
+  font-size: 12px;
+  font-family: PingFang SC;
+  line-height: 16px;
+  color: #000000;
+}
+
+.calendarWarp {
+  width: 100%;
+  will-change: transform;
+  height: 180px;
+  overflow: auto;
+}
+
+.MonthCalendarWarp {
+  height: 196px !important;
+}
+
+.dayList {
+  width: 100%;
+  padding: 0 5px 0 15px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+}
+
+.monthList {
+  width: 100%;
+  padding: 0 5px 0 5px;
+  box-sizing: border-box;
+}
+
+.monthListRoot {
+  width: 100%;
+  padding: 0 5px 0 15px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.monthListItem {
+  position: absolute;
+}
+
+.monthListItem .weekItem {
+  position: relative;
+  display: flex;
+}
+
+.monthListItem .weekItem:first-child {
+  justify-content: flex-end;
+}
+
+.yearItem {
+  width: 100%;
+  display: flex;
+}
+
+.yearName {
+  flex: 1;
+  height: 40px;
+  line-height: 40px;
+  box-sizing: border-box;
+  list-style: none;
+  font-size: 13px;
+  text-align: center;
   font-weight: bold;
 }
-.react-calendar__month-view__days__day--weekend {
-  color: #d10000;
+
+.monthBox {
+  width: 210px;
+  display: flex;
+  flex-wrap: wrap;
 }
-.react-calendar__month-view__days__day--neighboringMonth {
-  color: #757575;
-}
-.react-calendar__year-view .react-calendar__tile,
-.react-calendar__decade-view .react-calendar__tile,
-.react-calendar__century-view .react-calendar__tile {
-  padding: 2em 0.5em;
-}
-.react-calendar__tile {
-  max-width: 100%;
-  padding: 10px 6.6667px;
-  background: none;
+
+.monthItem,
+.dayItem {
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+  box-sizing: border-box;
+  list-style: none;
+  font-size: 12px;
   text-align: center;
+  z-index: 1;
+  cursor: pointer;
+  user-select: none;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 1;
+}
+
+.dayItem:hover {
+  position: relative;
+  z-index: 1;
+}
+
+.dayItem:hover:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background-color: #e7e8ec;
+  z-index: -1;
+}
+
+.emptyItem:hover:before {
+  display: none;
+}
+
+.monthOdd {
+  /*background-color: #f3f4f6;*/
+}
+
+.monthListRoot .selectBetween,
+.monthBox .selectBetween,
+.dayList .selectBetween {
+  width: 35px;
+  height: 35px;
+  background-color: #F2F3F5;
+}
+
+.monthBox .active {
+  width: 35px;
+  height: 35px;
+  color: rgb(255, 255, 255);
+}
+
+.dayList .active {
+  width: 35px;
+  height: 35px;
+  color: rgb(255, 255, 255);
+}
+
+.monthListRoot .active {
+  width: 35px;
+  height: 35px;
+  color: rgb(255, 255, 255);
+}
+
+.dayList .weekActive {
+  background-color: #0076FF;
+}
+
+.leftActive {
+  border-top-left-radius: 50%;
+  border-bottom-left-radius: 50%;
+  overflow: hidden;
+}
+
+.rightActive {
+  border-top-right-radius: 50%;
+  border-bottom-right-radius: 50%;
+  overflow: hidden;
+}
+
+.monthListRoot .active:after,
+.monthBox .active:after,
+.dayList .active:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: #0076FF;
+  z-index: -1;
+}
+
+/*.dayList .active >div{*/
+/*    height: 17px;*/
+/*    overflow: hidden;*/
+/*}*/
+.monthListRoot .disabled,
+.monthBox .disabled,
+.dayList .disabled {
+  color: #cfd3da;
+  cursor: not-allowed;
+}
+
+.monthListRoot .active:hover:before,
+.dayList .active:hover:before,
+.dayList .selectBetween:hover:before,
+.dayList .disabled:hover:before {
+  display: none;
+}
+
+.inputWarp {
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  min-width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+.inputItem {
+  color: #000000;
+  height: 30px;
+  padding: 0;
+  width: 92px;
+  text-align: center;
+  border: 1px solid #DDDDDD;
+  outline: none;
+  font-size: 12px;
+  box-sizing: border-box;
+}
+
+.inputWarp .dateDash {
+  padding: 0 10px;
+}
+
+.sidebarWarp {
+  display: flex;
+  flex-flow: column nowrap;
+  -webkit-box-flex: 0;
+  flex: 0 0 auto;
+  align-items: flex-start;
+  justify-content: stretch;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding-top: 14px;
+  min-width: 115px;
+  border-right: 1px solid rgb(219, 222, 228);
+  height: 100%;
+}
+
+.sideItem {
+  width: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: flex-start;
+  min-width: auto;
+  max-width: 100%;
+  box-sizing: border-box;
+  height: 33px;
+  padding: 0 0 0 20px;
+  cursor: pointer;
+  font-size: 12px;
+  font-family: PingFang SC;
+  font-weight: 400;
   line-height: 16px;
+  color: #000000;
 }
-.react-calendar__tile:disabled {
-  background-color: #f0f0f0;
+
+.sideItem:hover, .sideActive {
+  border-left: 4px solid #0076FF;
+  padding-left: 16px;
+  color: #0076FF;
+  background-color: rgb(243, 244, 246);
+  cursor: pointer;
 }
-.react-calendar__tile:enabled:hover,
-.react-calendar__tile:enabled:focus {
-  background-color: #e6e6e6;
+
+/*这是输入框样式*/
+
+.rangePicker {
+  width: 260px;
+  min-width: 240px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: PingFang SC;
+  user-select: none;
 }
-.react-calendar__tile--now {
-  background: #ffff76;
+
+.rangePicker:hover {
+  background-color: rgb(243, 244, 246);
 }
-.react-calendar__tile--now:enabled:hover,
-.react-calendar__tile--now:enabled:focus {
-  background: #ffffa9;
+
+.rangeDate {
+  flex: 1;
+  display: flex;
+  font-weight: 400;
+  line-height: 30px;
+  color: #000000;
+  max-width: 200px;
 }
-.react-calendar__tile--hasActive {
-  background: #76baff;
+
+.inputDate {
+  text-align: center;
+  flex: 1;
+  padding: 0 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.react-calendar__tile--hasActive:enabled:hover,
-.react-calendar__tile--hasActive:enabled:focus {
-  background: #a9d4ff;
+.onlyOne{
+  width: 100%;
+  text-align: center;
 }
-.react-calendar__tile--active {
-  background: #006edc;
-  color: white;
+
+.dateDash {
+  padding: 0;
 }
-.react-calendar__tile--active:enabled:hover,
-.react-calendar__tile--active:enabled:focus {
-  background: #1087ff;
+
+.rangeType {
+  box-sizing: border-box;
+  width: 86px;
+  display: flex;
+  height: 16px;
+  line-height: 16px;
+  border-left: 1px solid #BBBBBB;
+  padding: 0 8px;
 }
-.react-calendar--selectRange .react-calendar__tile--hover {
-  background-color: #e6e6e6;
+
+.dropdown {
+  position: absolute;
+  top: 34px;
+  /*width: 398px;*/
+  /*height: 387px;*/
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  box-shadow: 1px 1px 4px rgba(187, 187, 187, 0.5);
+  overflow: hidden;
+}
+
+.pickerFooter {
+  height: 66px;
+  width: 100%;
+  box-sizing: border-box;
+  border-top: 1px solid #DDDDDD;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: flex-end;
+}
+
+.confirmBtn {
+  width: 84px;
+  height: 30px;
+  background: #0076FF;
+  color: #FFFFFF;
+  position: relative;
+  z-index: 99;
+}
+
+.cancelBtn {
+  position: relative;
+  z-index: 99;
+  width: 84px;
+  height: 30px;
+  background: #FFFFFF;
+  border: 1px solid #DDDDDD;
+  color: #000000;
+  box-sizing: border-box;
+  margin-left: 20px;
+}
+
+.hasMonthTitle .inputWarp{
+  padding: 10px 0;
+}
+.hasMonthTitle .monthTitle{
+  text-align: center;
+  line-height: 20px;
+  height: 20px;
+  font-size: 12px;
+  background-color: #F2F3F5;
+}
+
+.hourPicker .inputWarp{
+  padding: 10px 0;
+  box-sizing: border-box;
+  border-bottom: 1px solid rgb(219, 222, 228);
+}
+.hourPicker .inputWarp .date-input__start,
+.hourPicker .inputWarp .date-input__end{
+  width: 120px;
+}
+.timePicker{
+  display: flex;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 115px;
+  border-right: 1px solid rgb(219, 222, 228);
+  height: 100%;
+}
+.timeSelect{
+  flex: 1;
+  height: 216px;
+  overflow: auto;
+  text-align: center;
+}
+.timeItem{
+  height: 30px;
+  line-height: 30px;
+}
+.timeSelect .active{
+  background-color: #0076FF;
+  color: #FFFFFF;
 }

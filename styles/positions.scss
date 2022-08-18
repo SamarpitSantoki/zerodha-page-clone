@@ -365,7 +365,6 @@ body.app-wrapper, html {
 
 .positionsPage{
   font-size: 100%;
-
   min-width: 320px;
   background-color: var(--color-bg-body);
   line-height: 1.6;
@@ -375,6 +374,10 @@ body.app-wrapper, html {
   color: var(--color-text-default);
   font-size: 14px;
   margin: 0;
+
+  .connected-apps .app.row .app-details .more-details .block-title, .notifications-bar, .order-window .gtt .input .su-input-group input, .orderbook .gtt-info-modal, .orderbook .gtt-list-wrap .page-title .icon, .orderbook .history-modal, .orderbook .history-modal table tbody td, .orderbook .history-modal table thead th, .orderbook .order-info-modal, .orderbook .status-message-info, .orderbook .trades-modal, .orderbook .trades-modal table tbody td, .orderbook .trades-modal table thead th, .orderbook .trades-wrap .page-title .icon, .positions .product-modify-modal label, .text-small {
+    font-size: 0.875rem;
+  }
 
   &.modal-open .chart-wrapper .drawer {
     overflow: hidden;
@@ -16873,4 +16876,14 @@ tr:hover .context-menu.table {
 
 .icon-shield:before {
   content: "\ea22";
+}
+.table-border {
+  padding-right: 1.2rem !important;
+    border-right: 1px solid #eee;
+}
+
+.loading-bar{height:2px;width:100%;position:relative;overflow:hidden;background-color:var(--color-bg-1)}.loading-bar:before{display:block;position:absolute;content:"";left:-200px;width:200px;height:2px;background-color:#df514c;-webkit-animation:loading 1.5s linear infinite;animation:loading 1.5s linear infinite}@-webkit-keyframes loading{0%{left:-200px;width:30%}50%{width:30%}70%{width:70%}80%{left:50%}95%{left:120%}to{left:100%}}@keyframes loading{0%{left:-200px;width:30%}50%{width:30%}70%{width:70%}80%{left:50%}95%{left:120%}to{left:100%}}
+
+html {
+    overflow-y:scroll;
 }

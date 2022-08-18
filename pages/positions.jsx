@@ -1,11 +1,17 @@
 import Head from "next/head";
-import { useEffect } from "react";
+import Link from "next/link";
+import { useContext, useEffect } from "react";
 import { useState } from "react";
+import LoadingContext from "../context/loadingContext";
 import { cards, EventMessage, headerData, SideBarData } from "../data";
 
 function App() {
-  const [positionsLoading, setPositionLoading] = useState(true);
-  const [initialLoader, setInitialLoader] = useState(true);
+  const {
+    positionsLoading,
+    setInitialLoader,
+    initialLoader,
+    setPositionLoading,
+  } = useContext(LoadingContext);
   const [plTotal, setPlTotal] = useState(0);
   let total = 0;
   const arr = cards.forEach((card) => {
@@ -111,9 +117,11 @@ function App() {
                 <a href="/dashboard" className="">
                   <span>Dashboard</span>
                 </a>{" "}
-                <a href="/orders" className="orders-nav-item">
-                  <span>Orders</span>{" "}
-                </a>{" "}
+                <Link href="/orders" className="orders-nav-item">
+                  <a>
+                    <span>Orders</span>{" "}
+                  </a>
+                </Link>{" "}
                 <a href="/holdings" className="">
                   <span>Holdings</span>
                 </a>{" "}

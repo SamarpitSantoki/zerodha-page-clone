@@ -15,7 +15,8 @@
     "@mui/x-date-pickers": "^5.0.0-beta.5",
     "@mui/x-date-pickers-pro": "^5.0.0-beta.5",
     "@wojtekmaj/react-daterange-picker": "^3.4.0",
-    "mx-datepicker": "0.0.2",
+    "moment": "^2.29.4",
+    "mx-datepicker": "^0.0.2",
     "next": "12.2.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"

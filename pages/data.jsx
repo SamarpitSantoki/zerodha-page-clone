@@ -3,6 +3,7 @@ import { USER, PWD, PORT } from "../LiveApiData";
 function data() {
   const [socket, setSocket] = useState(null);
   const [data, setData] = useState([]);
+  const [niftyPrice, setNiftyPrice] = useState(0);
   const url =
     "wss://push.truedata.in:" + PORT + "?user=" + USER + "&password=" + PWD;
   function connect() {
@@ -11,7 +12,7 @@ function data() {
     newSocket.onopen = socketonopen;
     newSocket.onerror = socketonerror;
     newSocket.onmessage = socketonmessage;
-    newSocket.onclose = socketonclose;
+    // newSocket.onclose = socketonclose;
 
     setSocket(newSocket);
   }
@@ -26,7 +27,7 @@ function data() {
   function socketonmessage(e) {
     var jsonObj = JSON.parse(e.data);
     setData((prev) => [...prev, jsonObj.message]);
-    if (jsonObj.success) {
+    if (jsonObj.success !== undefined) {
       switch (jsonObj.message) {
         case "TrueData Real Time Data Service":
           console.log(
@@ -51,6 +52,7 @@ function data() {
     if (jsonObj.trade != null) {
       //console.log(jsonObj.trade)
       var tradeArray = jsonObj.trade;
+      setNiftyPrice(tradeArray[2] * 1200);
       console.log(
         "SymbolId: " +
           tradeArray[0] +
@@ -83,38 +85,42 @@ function data() {
   }
 
   function socketonclose() {
-    connection.close();
+    socket.close();
   }
 
   function addSymbol() {
     var jsonRequest = {
       method: "addsymbol",
-      symbols: [
-        "NIFTY 50",
-        "NIFTY-I",
-        "HDFC",
-        "CRUDEOIL-I",
-        "GOLD-I",
-        "SILVER-I",
-      ],
+      symbols: ["BANKNIFTY22081839000CE"],
     };
     let s = JSON.stringify(jsonRequest);
     socket.send(s);
   }
+  function disconnect() {
+    socket.close();
+  }
 
+  function getOptions() {
+    var jsonRequest = {
+      method: "getoptions",
+    };
+    let s = JSON.stringify(jsonRequest);
+    socket.send(s);
+  }
   return (
     <>
       <div>
         <h1>Data</h1>
         <button onClick={connect}>Connect</button>
-        <button>Disconnect</button>
+        <button onClick={disconnect}>Disconnect</button>
         <button onClick={addSymbol}>Add Symbol</button>
+        <button onClick={getOptions}>getOptions</button>
         <div>
           Showing API data
+          <div>Real Time Data</div>
           <div>
-            {data.map((item) => {
-              return <div>{item}</div>;
-            })}
+            <span>BANKNIFTY: </span>
+            <span>{niftyPrice}</span>
           </div>
         </div>
       </div>
