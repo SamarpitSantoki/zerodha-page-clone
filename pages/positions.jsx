@@ -20,11 +20,11 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setPositionLoading(false);
-      setPlTotal(total);
     }, 1000);
     setTimeout(() => {
       setInitialLoader(false);
     }, 200);
+    setPlTotal(total);
   }, []);
 
   if (initialLoader) {
