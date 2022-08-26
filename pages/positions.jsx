@@ -737,7 +737,7 @@ function App() {
                                                   ? "nd"
                                                   : card.expiryDate === 3
                                                   ? "rd"
-                                                  : "th"}
+                                                  : "th"}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
@@ -833,7 +833,7 @@ function App() {
                                                   ? "nd"
                                                   : card.expiryDate === 3
                                                   ? "rd"
-                                                  : "th"}
+                                                  : "th"}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
@@ -1010,7 +1010,7 @@ function App() {
                                                   ? "nd"
                                                   : card.expiryDate === 3
                                                   ? "rd"
-                                                  : "th"}
+                                                  : "th"}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
@@ -1100,7 +1100,7 @@ function App() {
                                                   ? "nd"
                                                   : card.expiryDate === 3
                                                   ? "rd"
-                                                  : "th"}
+                                                  : "th"}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
