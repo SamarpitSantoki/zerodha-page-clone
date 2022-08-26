@@ -144,7 +144,7 @@ function App() {
                     <div id="avatar-80">
                       {" "}
                       <img
-                        src="https://s3.ap-south-1.amazonaws.com/zerodha-kite-blobs/avatars/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png"
+                        src="/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png"
                         height="25"
                         width="25"
                         className="avatar"
@@ -599,11 +599,17 @@ function App() {
                                             {card.expiryDate.toLocaleString(
                                               "en-IN",
                                               {
-                                                minimumIntegerDigits: 2,
+                                                minimumIntegerDigits: 1,
                                               }
                                             )}
                                             <sup>
-                                              th{" "}
+                                              {card.expiryDate === 1
+                                                ? "st"
+                                                : card.expiryDate === 2
+                                                ? "nd"
+                                                : card.expiryDate === 3
+                                                ? "rd"
+                                                : "th"}
                                               <span className="weekly">w</span>
                                             </sup>{" "}
                                           </>
