@@ -15,7 +15,7 @@ function App() {
   const [plTotal, setPlTotal] = useState(0);
   let total = 0;
   const arr = cards.forEach((card) => {
-    total = total + card.pl;
+    total = total + parseFloat(card.pl);
   });
   useEffect(() => {
     setTimeout(() => {
@@ -85,21 +85,19 @@ function App() {
                     <span className="wrap">
                       <span
                         className={`last-price ${
-                          header.change > 0
-                            ? "up"
-                            : header.change !== 0
+                          header.change[0] === '-'
                             ? "down"
-                            : ""
+                            : header.change[0] === "0"
+                            ? ""
+                            : "up"
                         }`}
                       >
-                        {header.price.toFixed(2)}
+                        {header.price}
                       </span>
                       <span className={`price-change `}>
                         <span className={`change-percent super-dim`}>
                           {" "}
-                          {header.change.toLocaleString("en-IN", {
-                            minimumFractionDigits: 2,
-                          })}{" "}
+                          {header.change}{" "}
                           <span className="text-xxsmall">%</span>
                         </span>
                       </span>
@@ -198,7 +196,7 @@ function App() {
                       <div
                         className={`vddl-draggable instrument index  index${
                           index + 1
-                        } ${item.change > 0 ? "up" : "down"}`}
+                        } ${item.change[0] ==="-" ? "down" : "up"}`}
                         draggable="true"
                       >
                         <div>
@@ -350,46 +348,7 @@ function App() {
           </div>
           <div className="container-right positions">
             <div className="page-content">
-              {/* <div className="notice layer-2">
-                <ul>
-                  <li>
-                    <span>
-                      Markets will remain closed on the 15th August, 2022 on
-                      account of Independence Day.{" "}
-                      <a
-                        href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
-                        target="_blank"
-                      >
-                        Read more
-                      </a>
-                      .
-                    </span>
-                  </li>
-                  <li>
-                    <span>
-                      Due to the settlement holiday on 16th August, 2022{" "}
-                      <a
-                        href="https://zerodha.com/marketintel/bulletin/329589/settlement-holiday-on-account-of-parsi-new-year-on-august-16-2022"
-                        target="_blank"
-                      >
-                        Parsi New year
-                      </a>
-                      , your account balance on Kite will not include the
-                      intraday profits made in equity segments on the 11th and
-                      the 12th of August, 2022. It will be updated on the 17th
-                      and 18th of August, 2022, respectively. You can check your
-                      fund statement on{" "}
-                      <a
-                        href="https://console.zerodha.com/funds/statement"
-                        target="_blank"
-                      >
-                        Console
-                      </a>{" "}
-                      to see the unsettled credits in your account.
-                    </span>
-                  </li>
-                </ul>
-              </div> */}
+              
               {EventMessage && (
                 <div className="notice layer-2">
                   <ul>
@@ -424,29 +383,7 @@ function App() {
                     </h3>
                   </header>
                 )}
-                {/* <div className="empty-state">
-                  
-                  <img src="/positions.svg" className="empty-img" />
-                  <div>
-                    <p>You don't have any positions yet</p>
-                  </div>
-                  <button type="button" className="button-blue">
-                    Get started
-                  </button>
-                  <div className="footer">
-                    <div>
-                      <a
-                        target="_blank"
-                        href="https://console.zerodha.com/portfolio/positions"
-                        className="inline-image-text"
-                      >
-                        <img alt="alt" src="console.svg" />
-                        Analytics
-                      </a>
-                    </div>
-                    <div></div>
-                  </div>
-                </div> */}
+               
                 {!positionsLoading && (
                   <>
                     <section className="open-positions table-wrapper">
@@ -456,102 +393,7 @@ function App() {
                           <span className="count">({cards.length})</span>
                         </h3>
                       </header>
-                      {/* <div className="cards">
-                        <div className="toolbar">
-                          <a
-                            target="_blank"
-                            href="https://console.zerodha.com/portfolio/positions"
-                            className="item"
-                          >
-                            <span className="icon">
-                              <img
-                                src="/console.svg"
-                                style={{ height: "14px" }}
-                              />
-                            </span>
-                            <span>Analytics</span>
-                          </a>
-                        </div>
-                        {cards.map((card) => {
-                          return (
-                            <div className="card">
-                              <div className="top flex">
-                                <div className="flex4">
-                                  <span className="text-label small aqua product-label sienna-brown">
-                                    {card.product}
-                                  </span>
-                                  <span className="dim text-xxsmall">Qty.</span>
-                                  <span className="text-xxsmall">
-                                    {card.Qty}
-                                  </span>
-                                </div>
-                                <div className="flex6 text-right">
-                                  <span className="dim text-xxsmall">LTP</span>
-                                  <span> {card.LTP.toLocaleString('en-IN',{minimumFractionDigits:2})}</span>
-                                </div>
-                              </div>
-                              <div className="middle flex">
-                                <div className="flex6">
-                                  <span>{card.tradingsymbol}</span>
-                                  <span className="dim text-xxsmall">
-                                    {card.exchange}
-                                  </span>
-                                </div>
-                                <div className="flex3">
-                                  <span>
-                                    <span className="dim">₹</span>
-                                    {card.Avg.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
-                                  </span>
-                                </div>
-                                <div className="flex3 text-right">
-                                  <span className="dim text-xxsmall text-red open change-percent">
-                                    {card.pl.toLocaleString('en-IN',{minimumFractionDigits:2})}%
-                                  </span>
-                                  <span>
-                                    <span>{card.Chg}</span>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                          );
-                        })}
-                        <div className="card">
-                          <div className="top flex">
-                            <div className="flex4">
-                              <span className="text-label small aqua product-label amber">
-                                MIS
-                              </span>
-                              <span className="dim text-xxsmall"> Qty.</span>
-                              <span className="text-xxsmall">0</span>
-                            </div>
-                            <div className="flex6 text-right">
-                              <span className="dim text-xxsmall">LTP</span>
-                              <span> 8.73</span>
-                            </div>
-                          </div>
-                          <div className="middle flex">
-                            <div className="flex6">
-                              <span>IDEA</span>
-                              <span className="dim text-xxsmall">BSE</span>
-                            </div>
-                            <div className="flex3">
-                              <span>–</span>
-                            </div>
-                            <div className="flex3 text-right">
-                              <span className="dim text-xxsmall closed greyed change-percent"></span>
-                              <span>
-                                <span>-0.01</span>
-                              </span>
-                            </div>
-                          </div>
-                        </div>
-                        <div className="total">
-                          <span className="dim">Total P/L</span>
-                          <div className="text-red">-0.18</div>
-                        </div>
-                      </div> */}
+                      
                       <div>
                         <div
                           tabIndex="1"
@@ -643,56 +485,7 @@ function App() {
                               </tr>
                             </thead>
                             <tbody>
-                              {/* <tr className="">
-                                <td className="select">
-                                  <div className="su-checkbox-group">
-                                    <input
-                                      id="position.12175106.MIS2"
-                                      type="checkbox"
-                                      disabled="disabled"
-                                      className="su-checkbox"
-                                    />{" "}
-                                    <label
-                                      for="position.12175106.MIS2"
-                                      className="su-checkbox-label"
-                                    >
-                                      <span className="su-checkbox-box">
-                                        <span className="su-checkbox-tick"></span>
-                                      </span>
-                                    </label>
-                                  </div>
-                                </td>{" "}
-                                <td className="closed greyed product">
-                                  <span className="text-label small aqua amber">
-                                    MIS
-                                  </span>
-                                </td>{" "}
-                                <td className="closed greyed instrument">
-                                  <span className="tradingsymbol">
-                                    BANKNIFTY 18
-                                    <sup>
-                                      th <span className="weekly">w</span>
-                                    </sup>{" "}
-                                    AUG 39000 PE
-                                  </span>{" "}
-                                  <span className="exchange text-xxsmall dim">
-                                    NFO
-                                  </span>{" "}
-                                </td>{" "}
-                                <td className="closed greyed quantity right">0</td>{" "}
-                                <td className="closed greyed average-price right">
-                                  314.00
-                                </td>{" "}
-                                <td className="closed greyed last-price right">
-                                  299.20
-                                </td>{" "}
-                                <td className="text-green closed greyed pnl right">
-                                  <span>+2,475.00</span>
-                                </td>
-                                <td className="closed greyed change-percent change-percent right">
-                                  <span>-14.00%</span>
-                                </td>
-                              </tr> */}
+                             
                               {cards.map((card) => {
                                 if (card.status !== "closed") {
                                   return (
@@ -722,20 +515,15 @@ function App() {
                                       <td className="open instrument">
                                         <span className="tradingsymbol">
                                           {card.tradingsymbol}{" "}
-                                          {card.expiryDate && (
+                                          {card.expiryDate !=='' && (
                                             <>
-                                              {card.expiryDate.toLocaleString(
-                                                "en-IN",
-                                                {
-                                                  minimumIntegerDigits: 1,
-                                                }
-                                              )}
+                                              {card.expiryDate}
                                               <sup>
-                                                {card.expiryDate === 1
+                                                {card.expiryDate === "1"
                                                   ? "st"
-                                                  : card.expiryDate === 2
+                                                  : card.expiryDate === "2"
                                                   ? "nd"
-                                                  : card.expiryDate === 3
+                                                  : card.expiryDate === "3"
                                                   ? "rd"
                                                   : "th"}{" "}
                                                 <span className="weekly">
@@ -744,8 +532,8 @@ function App() {
                                               </sup>{" "}
                                             </>
                                           )}
-                                          {card.expiryMonth &&
-                                            MONTHS[card.expiryMonth - 1]}{" "}
+                                          {card.expiryMonth!=='' &&
+                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
                                           {card.placePrice} {card.option}
                                         </span>{" "}
                                         <span className="exchange text-xxsmall dim">
@@ -756,34 +544,29 @@ function App() {
                                         {card.Qty}
                                       </td>
                                       <td className="open average-price right">
-                                        {card.Avg.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.LTP}
                                       </td>
                                       <td
                                         className={`${
-                                          card.pl > 0
+                                          card.pl[0] === "+"
                                             ? "text-green"
                                             : "text-red"
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl > 0 && "+"}
-                                          {card.pl.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.pl}
                                         </span>
                                       </td>
-                                      <td className="text-red open change-percent change-percent right">
+                                      <td className={`${
+                                          card.pl[0] === "+"
+                                            ? "text-green"
+                                            : "text-red"
+                                        } text-red open change-percent change-percent right`}>
                                         <span>
-                                          {card.Chg.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.Chg}
                                           %
                                         </span>
                                       </td>
@@ -818,20 +601,15 @@ function App() {
                                       <td className="closed greyed instrument">
                                         <span className="tradingsymbol">
                                           {card.tradingsymbol}{" "}
-                                          {card.expiryDate && (
+                                          {card.expiryDate !=='' && (
                                             <>
-                                              {card.expiryDate.toLocaleString(
-                                                "en-IN",
-                                                {
-                                                  minimumIntegerDigits: 1,
-                                                }
-                                              )}
+                                              {card.expiryDate}
                                               <sup>
-                                                {card.expiryDate === 1
+                                                {card.expiryDate === "1"
                                                   ? "st"
-                                                  : card.expiryDate === 2
+                                                  : card.expiryDate === "2"
                                                   ? "nd"
-                                                  : card.expiryDate === 3
+                                                  : card.expiryDate === "3"
                                                   ? "rd"
                                                   : "th"}{" "}
                                                 <span className="weekly">
@@ -840,8 +618,8 @@ function App() {
                                               </sup>{" "}
                                             </>
                                           )}
-                                          {card.expiryMonth &&
-                                            MONTHS[card.expiryMonth - 1]}{" "}
+                                          {card.expiryMonth!=='' &&
+                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
                                           {card.placePrice} {card.option}
                                         </span>{" "}
                                         <span className="exchange text-xxsmall dim">
@@ -866,29 +644,20 @@ function App() {
                                         {card.Qty}
                                       </td>
                                       <td className="closed greyed average-price right">
-                                        {card.Avg.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.LTP}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
-                                          {card.pl > 0 && "+"}
 
-                                          {card.pl.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.pl}
                                         </span>
                                       </td>
                                       <td className="closed greyed change-percent change-percent right">
                                         <span>
-                                          {card.Chg.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.Chg}
                                           %
                                         </span>
                                       </td>
@@ -995,20 +764,15 @@ function App() {
                                       <td className="open instrument">
                                         <span className="tradingsymbol">
                                           {card.tradingsymbol}{" "}
-                                          {card.expiryDate && (
+                                          {card.expiryDate !=='' && (
                                             <>
-                                              {card.expiryDate.toLocaleString(
-                                                "en-IN",
-                                                {
-                                                  minimumIntegerDigits: 1,
-                                                }
-                                              )}
+                                              {card.expiryDate}
                                               <sup>
-                                                {card.expiryDate === 1
+                                                {card.expiryDate === "1"
                                                   ? "st"
-                                                  : card.expiryDate === 2
+                                                  : card.expiryDate === "2"
                                                   ? "nd"
-                                                  : card.expiryDate === 3
+                                                  : card.expiryDate === "3"
                                                   ? "rd"
                                                   : "th"}{" "}
                                                 <span className="weekly">
@@ -1017,8 +781,8 @@ function App() {
                                               </sup>{" "}
                                             </>
                                           )}
-                                          {card.expiryMonth &&
-                                            MONTHS[card.expiryMonth - 1]}{" "}
+                                          {card.expiryMonth!=='' &&
+                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
                                           {card.placePrice} {card.option}
                                         </span>{" "}
                                         <span className="exchange text-xxsmall dim">
@@ -1040,35 +804,25 @@ function App() {
                                         {card.Qty}
                                       </td>
                                       <td className="open average-price right">
-                                        {card.Avg.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.LTP}
                                       </td>
                                       <td
                                         className={`${
-                                          card.pl > 0
+                                          card.pl[0] === "+"
                                             ? "text-green"
                                             : "text-red"
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl > 0 && "+"}
-
-                                          {card.pl.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.pl}
                                         </span>
                                       </td>
                                       <td className="text-red open change-percent change-percent right">
                                         <span>
-                                          {card.Chg.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.Chg}
                                           %
                                         </span>
                                       </td>
@@ -1085,20 +839,15 @@ function App() {
                                       <td className="closed greyed instrument">
                                         <span className="tradingsymbol">
                                           {card.tradingsymbol}{" "}
-                                          {card.expiryDate && (
+                                          {card.expiryDate !=='' && (
                                             <>
-                                              {card.expiryDate.toLocaleString(
-                                                "en-IN",
-                                                {
-                                                  minimumIntegerDigits: 1,
-                                                }
-                                              )}
+                                              {card.expiryDate}
                                               <sup>
-                                                {card.expiryDate === 1
+                                                {card.expiryDate === "1"
                                                   ? "st"
-                                                  : card.expiryDate === 2
+                                                  : card.expiryDate === "2"
                                                   ? "nd"
-                                                  : card.expiryDate === 3
+                                                  : card.expiryDate === "3"
                                                   ? "rd"
                                                   : "th"}{" "}
                                                 <span className="weekly">
@@ -1107,8 +856,8 @@ function App() {
                                               </sup>{" "}
                                             </>
                                           )}
-                                          {card.expiryMonth &&
-                                            MONTHS[card.expiryMonth - 1]}{" "}
+                                          {card.expiryMonth!=='' &&
+                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
                                           {card.placePrice} {card.option}
                                         </span>{" "}
                                         <span className="exchange text-xxsmall dim">
@@ -1119,29 +868,19 @@ function App() {
                                         {card.Qty}
                                       </td>
                                       <td className="closed greyed average-price right">
-                                        {card.Avg.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
-                                          minimumFractionDigits: 2,
-                                        })}
+                                        {card.LTP}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
-                                          {card.pl > 0 && "+"}
-
-                                          {card.pl.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.pl}
                                         </span>
                                       </td>
                                       <td className="closed greyed change-percent change-percent right">
                                         <span>
-                                          {card.Chg.toLocaleString("en-IN", {
-                                            minimumFractionDigits: 2,
-                                          })}
+                                          {card.Chg}
                                           %
                                         </span>
                                       </td>

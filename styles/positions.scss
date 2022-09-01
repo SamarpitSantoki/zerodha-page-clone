@@ -109,6 +109,12 @@
   --color-bg-9--rgb:224, 224, 224;
   --bg-input-disabled:url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 0h1L0 6V5zm1 5v1H5z' fill='%23ddd' fill-rule='evenodd'/%3E%3C/svg%3E");
 }
+.rt-body {
+  min-width: unset;
+  height: 200px; //or whatever height you want here
+  overflow: hidden;
+  overflow-y: scroll;
+}
 /* cyrillic-ext */
 @font-face {
   font-family: "Open Sans";
@@ -16886,4 +16892,11 @@ tr:hover .context-menu.table {
 
 html {
     overflow-y:scroll;
+}
+
+#__next > div > main > div > div > table > tbody > tr > td > input{
+  &:hover{
+      outline: -webkit-focus-ring-color auto 1px;
+  
+  }
 }

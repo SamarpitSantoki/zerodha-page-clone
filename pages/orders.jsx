@@ -72,7 +72,7 @@ function App() {
           <div className="wrapper">
             <div className="header-left">
               <div className="pinned-instruments">
-                {headerData.map((header) => (
+              {headerData.map((header) => (
                   <div className="instrument-widget">
                     <span
                       tooltip-pos="down"
@@ -85,21 +85,19 @@ function App() {
                     <span className="wrap">
                       <span
                         className={`last-price ${
-                          header.change > 0
-                            ? "up"
-                            : header.change !== 0
+                          header.change[0] === '-'
                             ? "down"
-                            : ""
+                            : header.change[0] === "0"
+                            ? ""
+                            : "up"
                         }`}
                       >
-                        {header.price.toFixed(2)}
+                        {header.price}
                       </span>
                       <span className={`price-change `}>
                         <span className={`change-percent super-dim`}>
                           {" "}
-                          {header.change.toLocaleString("en-IN", {
-                            minimumFractionDigits: 2,
-                          })}{" "}
+                          {header.change}{" "}
                           <span className="text-xxsmall">%</span>
                         </span>
                       </span>
@@ -196,7 +194,7 @@ function App() {
                       <div
                         className={`vddl-draggable instrument index  index${
                           index + 1
-                        } ${item.change > 0 ? "up" : "down"}`}
+                        } ${item.change[0] === "-" ? "down" : "up"}`}
                         draggable="true"
                       >
                         <div>
@@ -273,9 +271,7 @@ function App() {
                             <span className="price">
                               <span>
                                 <span className="dim">
-                                  {item.change.toLocaleString("en-IN", {
-                                    minimumFractionDigits: 2,
-                                  })}{" "}
+                                  {item.change}{" "}
                                   <span className="text-xxsmall">%</span>
                                 </span>
                               </span>{" "}
@@ -594,29 +590,26 @@ function App() {
                                     <td className="instrument">
                                       <span className="tradingsymbol">
                                         {card.tradingsymbol}{" "}
-                                        {card.expiryDate && (
-                                          <>
-                                            {card.expiryDate.toLocaleString(
-                                              "en-IN",
-                                              {
-                                                minimumIntegerDigits: 1,
-                                              }
-                                            )}
-                                            <sup>
-                                              {card.expiryDate === 1
-                                                ? "st"
-                                                : card.expiryDate === 2
-                                                ? "nd"
-                                                : card.expiryDate === 3
-                                                ? "rd"
-                                                : "th"}{" "}
-                                              <span className="weekly">w</span>
-                                            </sup>{" "}
-                                          </>
-                                        )}
-                                        {card.expiryMonth &&
-                                          MONTHS[card.expiryMonth - 1]}{" "}
-                                        {card.placePrice} {card.option}
+                                        {card.expiryDate !=='' && (
+                                            <>
+                                              {card.expiryDate}
+                                              <sup>
+                                                {card.expiryDate === "1"
+                                                  ? "st"
+                                                  : card.expiryDate === "2"
+                                                  ? "nd"
+                                                  : card.expiryDate === "3"
+                                                  ? "rd"
+                                                  : "th"}{" "}
+                                                <span className="weekly">
+                                                  w
+                                                </span>
+                                              </sup>{" "}
+                                            </>
+                                          )}
+                                       {card.expiryMonth!=='' &&
+                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
+                                          {card.placePrice} {card.option}
                                       </span>{" "}
                                       <span className="exchange text-xxsmall dim">
                                         {card.exchange}

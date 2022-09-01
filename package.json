@@ -14,12 +14,17 @@
     "@mui/material": "^5.10.0",
     "@mui/x-date-pickers": "^5.0.0-beta.5",
     "@mui/x-date-pickers-pro": "^5.0.0-beta.5",
+    "@tanstack/react-table": "^8.5.11",
     "@wojtekmaj/react-daterange-picker": "^3.4.0",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
     "moment": "^2.29.4",
     "mx-datepicker": "^0.0.2",
     "next": "12.2.4",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-data-table-component": "^7.5.3",
+    "react-dom": "18.2.0",
+    "reactstrap": "^9.1.4"
   },
   "devDependencies": {
     "eslint": "8.21.0",

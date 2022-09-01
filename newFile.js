@@ -120,8 +120,8 @@ export const cards = [
     status: 'closed'
   }
 ];export const headerData = [
-  { tradingsymbol: 'NIFTY 50', price: 17345.45, change: '-1.2' },
-  { tradingsymbol: 'NIFTY BANK', price: 38237.4, change: '1.32' }
+  { tradingsymbol: 'NIFTY 50', price: 17345.45, change: -1 },
+  { tradingsymbol: 'NIFTY BANK', price: 38237.4, change: 1 }
 ];export const EventMessage = '';export const OrderPage = [
   {
     time: '10:05:10',
