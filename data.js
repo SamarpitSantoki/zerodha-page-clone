@@ -2,7 +2,7 @@ export const cards = [
   {
     product: 'MIS',
     tradingsymbol: 'BANKNIFTY',
-    expiryDate: null,
+    expiryDate: '25',
     expiryMonth: 8,
     placePrice: 37700,
     option: 'CE',
@@ -10,14 +10,14 @@ export const cards = [
     Qty: 0,
     LTP: 348,
     Avg: 0,
-    pl: 2450.5,
+    pl: '25.25',
     Chg: 0,
     status: 'closed'
   },
   {
     product: 'MIS',
     tradingsymbol: 'BANKNIFTY',
-    expiryDate: 4,
+    expiryDate: '',
     expiryMonth: 8,
     placePrice: 37700,
     option: 'PE',
@@ -122,7 +122,7 @@ export const cards = [
 ];export const headerData = [
   { tradingsymbol: 'NIFTY 50', price: 17345.45, change: '-1.2' },
   { tradingsymbol: 'NIFTY BANK', price: 38237.4, change: '1.32' }
-];export const EventMessage = '';export const OrderPage = [
+];export const EventMessage = "";export const OrderPage = [
   {
     time: '10:05:10',
     type: 'SELL',

@@ -34,13 +34,14 @@ const defaultColumn = {
 
     return (
       <input
+
         value={value}
         onChange={e => setValue(e.target.value)}
         onBlur={onBlur}
         style={
           {
             border:0,
-            width: 100,
+            width: "100%",
           }
         }
       />

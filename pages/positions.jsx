@@ -547,7 +547,9 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP}
+                                        {card.LTP.toLocaleString("en-IN", {
+                                          minimumFractionDigits: 2,
+                                        })}
                                       </td>
                                       <td
                                         className={`${
@@ -557,7 +559,9 @@ function App() {
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl}
+                                          {card.pl.toLocaleString("en-IN", {
+                                            minimumFractionDigits: 2,
+                                          })}
                                         </span>
                                       </td>
                                       <td className={`${
@@ -647,12 +651,16 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP}
+                                        {card.LTP.toLocaleString("en-IN", {
+                                          minimumFractionDigits: 2,
+                                        })}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
 
-                                          {card.pl}
+                                          {card.pl.toLocaleString("en-IN", {
+                                            minimumFractionDigits: 2,
+                                          })}
                                         </span>
                                       </td>
                                       <td className="closed greyed change-percent change-percent right">
@@ -807,7 +815,9 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP}
+                                        {card.LTP.toLocaleString("en-IN", {
+                                          minimumFractionDigits: 2,
+                                        })}
                                       </td>
                                       <td
                                         className={`${
@@ -817,7 +827,9 @@ function App() {
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl}
+                                          {card.pl.toLocaleString("en-IN", {
+                                            minimumFractionDigits: 2,
+                                          })}
                                         </span>
                                       </td>
                                       <td className="text-red open change-percent change-percent right">
@@ -871,11 +883,15 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP}
+                                        {card.LTP.toLocaleString("en-IN", {
+                                          minimumFractionDigits: 2,
+                                        })}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
-                                          {card.pl}
+                                          {card.pl.toLocaleString("en-IN", {
+                                            minimumFractionDigits: 2,
+                                          })}
                                         </span>
                                       </td>
                                       <td className="closed greyed change-percent change-percent right">

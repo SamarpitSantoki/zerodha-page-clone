@@ -35,6 +35,11 @@ function Navbar() {
                     <span>Sidebar</span>{" "}
                   </a>
                 </Link>
+                <Link href="/admin/event" className="orders-nav-item">
+                  <a>
+                    <span>Event</span>{" "}
+                  </a>
+                </Link>
                 
               </div>
 

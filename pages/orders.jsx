@@ -637,7 +637,9 @@ function App() {
                                       {/* {card.Avg.toLocaleString("en-IN", {
                                         minimumFractionDigits: 2,
                                       })} */}
-                                      {card.Avg}{" "}
+                                      {card.Avg.toLocaleString("en-IN", {
+                                          minimumFractionDigits: 2,
+                                        })}{" "}
                                     </td>
                                     <td className="order-status right ">
                                       <span

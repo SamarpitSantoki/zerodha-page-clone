@@ -4,21 +4,20 @@ import { useEffect } from 'react'
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Input, FormGroup, Label } from 'reactstrap'
 import Layout from '../../components/Layout'
 import EditableTable from '../../components/Table'
-import { SideBarData } from '../../data'
+import { EventMessage } from '../../data'
 import axios from 'axios'
 function admin() {
     const [showModal, setShowModal] = useState(false)
-    const [rowData, setRowData] = useState(SideBarData)
-    const newEntry = {...SideBarData[0]}
+    const [rowData, setRowData] = useState([{
+        EventMessage: EventMessage
+    }])
   
     console.log(rowData);
 
     async function saveData(){
-        const data = rowData.filter(item=>item.tradingsymbol!=='')
-        console.log(data.length);
         const responce = await axios.post('/api/saveData',{
-            data: data,
-            field:'SideBarData'
+            data: rowData[0].EventMessage,
+            field:'EventMessage'
         })
 
     }
@@ -53,9 +52,9 @@ function admin() {
 
             }}>
                 <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={()=>saveData()}>Save</Button>
-                <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={() => setRowData(prev=>([...prev,newEntry]))}>Add</Button>
+                {/* <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={() => setRowData(prev=>([...prev,newEntry]))}>Add</Button> */}
                 <EditableTable data={rowData} setData={setRowData} />
-                {/* <DataTable columns={positionsColumns} data={SideBarData} /> */}
+                {/* <DataTable columns={positionsColumns} data={EventMessage} /> */}
             </div>
         </Layout>
 

@@ -25,7 +25,7 @@ export default function handler(req, res) {
       case 'EventMessage': 
       writeStream.write(`export const cards = ${util.inspect(cards, false, 2, false)};`)
       writeStream.write(`export const headerData = ${util.inspect(headerData, false, 2, false)};`)
-      writeStream.write(`export const EventMessage = ${util.inspect([...req.body.data], false, 2, false)};`)
+      writeStream.write(`export const EventMessage = "${req.body.data}";`)
       writeStream.write(`export const OrderPage = ${util.inspect(OrderPage, false, 2, false)};`)
       writeStream.write(`export const SideBarData = ${util.inspect(SideBarData, false, 2, false)}`)
       break;
