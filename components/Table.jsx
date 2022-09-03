@@ -11,7 +11,7 @@ import {
   Pagination,
   RowData,
 } from '@tanstack/react-table'
-import {Table as BootTable} from 'reactstrap'
+import {Button, Table as BootTable} from 'reactstrap'
 
 
 // Give our default column cell renderer editing superpowers!
@@ -71,12 +71,7 @@ function EditableTable({data,setData}) {
     header: ()=> key,
     footer: props => props.column.id,
   }))
-  cols.delete = {
-    accessorKey: 'delete',
-    header: ()=>'delete',
-    
-    footer: props => props.column.id,
-  }
+  
   const columns = React.useMemo(
     () => cols,
     []
@@ -171,9 +166,9 @@ function EditableTable({data,setData}) {
                     </td>
                   )
                 })}
-                <td><button onClick={()=>{
+                <td><Button onClick={()=>{
                   handleDelete(row.id)
-                }}>Delete</button></td>
+                }}>Delete</Button></td>
               </tr>
             )
           })}

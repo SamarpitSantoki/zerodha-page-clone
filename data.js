@@ -180,7 +180,6 @@ export const cards = [
     status: 'COMPLETE'
   }
 ];export const SideBarData = [
-  { tradingsymbol: 'NIFTY AUG FUT', change: '0.84', price: 17560 },
   { tradingsymbol: 'BANKNIFTY AUG FUT', change: '0.6', price: 38301.2 },
   { tradingsymbol: 'HDFCBANK', change: '2.45', price: 1462.05 },
   {
