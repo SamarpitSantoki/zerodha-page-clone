@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { Button, Modal, ModalBody, ModalFooter, ModalHeader, Input, FormGroup, Label } from 'reactstrap'
 import Layout from '../../components/Layout'
 import EditableTable from '../../components/Table'
-import { headerData } from '../../newFile'
+import { headerData } from '../../data'
 import axios from 'axios'
 function admin() {
     const [showModal, setShowModal] = useState(false)

@@ -122,21 +122,7 @@ export const cards = [
 ];export const headerData = [
   { tradingsymbol: 'NIFTY 50', price: 17345.45, change: '-1.2' },
   { tradingsymbol: 'NIFTY BANK', price: 38237.4, change: '1.32' }
-];export const EventMessage = "";export const OrderPage = [
-  {
-    time: '10:05:10',
-    type: 'SELL',
-    product: 'NRML',
-    tradingsymbol: 'NIFTY',
-    expiryDate: 18,
-    expiryMonth: 8,
-    placePrice: 17950,
-    option: 'CE',
-    exchange: 'NFO',
-    Qty: '200 / 200',
-    Avg: '41.59',
-    status: 'COMPLETE'
-  },
+];export const EventMessage = '';export const OrderPage = [
   {
     time: '10:05:10',
     type: 'SELL',

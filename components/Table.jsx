@@ -18,7 +18,6 @@ import {Table as BootTable} from 'reactstrap'
 const defaultColumn = {
   cell: ({ getValue, row: { index }, column: { id,...rest }, table }) => {
     const initialValue = getValue()
-    console.log(rest);
     // We need to keep and update the state of the cell normally
     const [value, setValue] = React.useState(initialValue)
 
@@ -72,6 +71,12 @@ function EditableTable({data,setData}) {
     header: ()=> key,
     footer: props => props.column.id,
   }))
+  cols.delete = {
+    accessorKey: 'delete',
+    header: ()=>'delete',
+    
+    footer: props => props.column.id,
+  }
   const columns = React.useMemo(
     () => cols,
     []
@@ -112,8 +117,18 @@ function EditableTable({data,setData}) {
     },
     debugTable: true,
   })
+  function handleDelete(id){
+    console.log('checkthis',data,id);
+    setData(prev=>
+      prev.filter((item,index)=>{
+        console.log(index,id);
+        if(index !== parseInt(id)){
+          return item
+        }
+      })
+    )
+  }
 
-  console.log(table.getRowModel().rows.map(item=> item._valuesCache))
   return (
     <div className="p-2">
       <div className="h-2" />
@@ -156,6 +171,9 @@ function EditableTable({data,setData}) {
                     </td>
                   )
                 })}
+                <td><button onClick={()=>{
+                  handleDelete(row.id)
+                }}>Delete</button></td>
               </tr>
             )
           })}
