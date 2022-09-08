@@ -634,10 +634,10 @@ function App() {
                                       {card.Qty}
                                     </td>
                                     <td className="average-price right table-border">
-                                      {/* {card.Avg.toLocaleString("en-IN", {
+                                      {/* {parseFloat(card.Avg)..toLocaleString("en-IN", {
                                         minimumFractionDigits: 2,
                                       })} */}
-                                      {card.Avg.toLocaleString("en-IN", {
+                                      {parseFloat(card.Avg).toLocaleString("en-IN", {
                                           minimumFractionDigits: 2,
                                         })}{" "}
                                     </td>

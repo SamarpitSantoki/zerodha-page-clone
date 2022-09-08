@@ -547,7 +547,7 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
+                                        {parseFloat(card.LTP).toLocaleString("en-IN", {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
@@ -559,7 +559,7 @@ function App() {
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl.toLocaleString("en-IN", {
+                                          {parseFloat(card.pl).toLocaleString("en-IN", {
                                             minimumFractionDigits: 2,
                                           })}
                                         </span>
@@ -651,14 +651,14 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
+                                        {parseFloat(card.LTP).toLocaleString("en-IN", {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
 
-                                          {card.pl.toLocaleString("en-IN", {
+                                          {parseFloat(card.pl).toLocaleString("en-IN", {
                                             minimumFractionDigits: 2,
                                           })}
                                         </span>
@@ -815,7 +815,7 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="open last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
+                                        {parseFloat(card.LTP).toLocaleString("en-IN", {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
@@ -827,7 +827,7 @@ function App() {
                                         } open pnl right`}
                                       >
                                         <span>
-                                          {card.pl.toLocaleString("en-IN", {
+                                          {parseFloat(card.pl).toLocaleString("en-IN", {
                                             minimumFractionDigits: 2,
                                           })}
                                         </span>
@@ -883,13 +883,13 @@ function App() {
                                         {card.Avg}
                                       </td>
                                       <td className="closed greyed last-price right">
-                                        {card.LTP.toLocaleString("en-IN", {
+                                        {parseFloat(card.LTP).toLocaleString("en-IN", {
                                           minimumFractionDigits: 2,
                                         })}
                                       </td>
                                       <td className="text-red closed greyed pnl right">
                                         <span>
-                                          {card.pl.toLocaleString("en-IN", {
+                                          {parseFloat(card.pl).toLocaleString("en-IN", {
                                             minimumFractionDigits: 2,
                                           })}
                                         </span>

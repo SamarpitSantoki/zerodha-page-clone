@@ -10,7 +10,7 @@ export const cards = [
     Qty: 0,
     LTP: 348,
     Avg: 0,
-    pl: '25.25',
+    pl: '77725.25',
     Chg: 0,
     status: 'closed'
   },
@@ -180,8 +180,8 @@ export const cards = [
     status: 'COMPLETE'
   }
 ];export const SideBarData = [
-  { tradingsymbol: 'BANKNIFTY AUG FUT', change: '0.6', price: 38301.2 },
-  { tradingsymbol: 'HDFCBANK', change: '2.45', price: 1462.05 },
+  { tradingsymbol: 'BANKNIFTY AUG FUT', change: '0.6', price: 38301.2,event:false },
+  { tradingsymbol: 'HDFCBANK', change: '2.45', price: 1462.05,event:false },
   {
     tradingsymbol: 'ONGC',
     change: '-0.15',
