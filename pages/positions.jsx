@@ -264,7 +264,7 @@ function App() {
                                     {item.exchange?.toUpperCase()}
                                   </span>
                                 )}
-                                {item.event && (
+                                {item.event === "true" && (
                                   <span className="events-label text-blue">
                                     {"  "}
                                     EVENT
