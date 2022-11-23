@@ -18,6 +18,7 @@
     "@wojtekmaj/react-daterange-picker": "^3.4.0",
     "axios": "^0.27.2",
     "bootstrap": "^5.2.0",
+    "kiteconnect": "^4.0.1",
     "moment": "^2.29.4",
     "mx-datepicker": "^0.0.2",
     "next": "12.2.4",

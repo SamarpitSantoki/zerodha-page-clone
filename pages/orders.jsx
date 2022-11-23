@@ -1,3 +1,5 @@
+/* eslint-disable @next/next/no-img-element */
+//  eslint-disable @next/next/no-img-element
 import Head from "next/head";
 import Link from "next/link";
 import { useContext, useEffect } from "react";
@@ -25,6 +27,7 @@ function App() {
     setTimeout(() => {
       setInitialLoader(false);
     }, 200);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (initialLoader) {
@@ -63,8 +66,8 @@ function App() {
       </Head>
       <noscript>
         <strong>
-          We're sorry but kite doesn't work properly without JavaScript enabled.
-          Please enable it to continue.
+          We&apos;re sorry but kite doesn&apos;t work properly without
+          JavaScript enabled. Please enable it to continue.
         </strong>
       </noscript>
       <div id="app" className="app page-positions">
@@ -72,8 +75,8 @@ function App() {
           <div className="wrapper">
             <div className="header-left">
               <div className="pinned-instruments">
-              {headerData.map((header) => (
-                  <div className="instrument-widget">
+                {headerData.map((header, index) => (
+                  <div key={index} className="instrument-widget">
                     <span
                       tooltip-pos="down"
                       className="tradingsymbol link-chart"
@@ -85,7 +88,7 @@ function App() {
                     <span className="wrap">
                       <span
                         className={`last-price ${
-                          header.change[0] === '-'
+                          header.change[0] === "-"
                             ? "down"
                             : header.change[0] === "0"
                             ? ""
@@ -142,6 +145,7 @@ function App() {
                     <div id="avatar-80">
                       {" "}
                       <img
+                        alt="avatar"
                         src="/4hQAAht2kIsZkhL9fWEsxMGBznOHvzdu.png"
                         height="25"
                         width="25"
@@ -192,6 +196,7 @@ function App() {
                   <div className="vddl-list list-flat">
                     {SideBarData.map((item, index) => (
                       <div
+                        key={index}
                         className={`vddl-draggable instrument index  index${
                           index + 1
                         } ${item.change[0] === "-" ? "down" : "up"}`}
@@ -344,9 +349,10 @@ function App() {
           </div>
           <div className="container-right positions">
             <div className="page-nav">
+              {/*  eslint-disable-next-line @next/next/no-html-link-for-pages */}
               <a
                 href="/orders"
-                aria-current="page"
+                ariaCurrent="page"
                 className="router-link-exact-active router-link-active"
               >
                 <span>Orders</span>
@@ -360,10 +366,10 @@ function App() {
               <a href="/orders/sip" className="">
                 <span>SIP</span>
               </a>{" "}
-              <a href="/orders/alerts" class="">
+              <a href="/orders/alerts" className="">
                 <span>Alerts</span>
               </a>{" "}
-              <a href="/orders/ipo" class="">
+              <a href="/orders/ipo" className="">
                 <span>IPO</span>
               </a>
             </div>
@@ -414,10 +420,7 @@ function App() {
                     <li>
                       <span>
                         {EventMessage}{" "}
-                        <a
-                          href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day"
-                          target="_blank"
-                        >
+                        <a href="https://zerodha.com/marketintel/bulletin/329588/trading-holiday-on-account-of-independence-day">
                           Read more
                         </a>
                         .
@@ -501,7 +504,6 @@ function App() {
                             </span>
                             <span className="toolbar-before">
                               <a
-                                target="_blank"
                                 href="https://console.zerodha.com/portfolio/positions"
                                 className="item"
                               >
@@ -572,9 +574,9 @@ function App() {
                               </tr>
                             </thead>
                             <tbody>
-                              {OrderPage.map((card) => {
+                              {OrderPage.map((card, index) => {
                                 return (
-                                  <tr className="">
+                                  <tr key={index} className="">
                                     <td className="order-timestamp">
                                       <span className="time ">{card.time}</span>
                                     </td>
@@ -590,26 +592,26 @@ function App() {
                                     <td className="instrument">
                                       <span className="tradingsymbol">
                                         {card.tradingsymbol}{" "}
-                                        {card.expiryDate !=='' && (
-                                            <>
-                                              {card.expiryDate}
-                                              <sup>
-                                                {card.expiryDate === "1"
-                                                  ? "st"
-                                                  : card.expiryDate === "2"
-                                                  ? "nd"
-                                                  : card.expiryDate === "3"
-                                                  ? "rd"
-                                                  : "th"}{" "}
-                                                <span className="weekly">
-                                                  w
-                                                </span>
-                                              </sup>{" "}
-                                            </>
-                                          )}
-                                       {card.expiryMonth!=='' &&
-                                            MONTHS[parseInt(card.expiryMonth) - 1]}{" "}
-                                          {card.placePrice} {card.option}
+                                        {card.expiryDate !== "" && (
+                                          <>
+                                            {card.expiryDate}
+                                            <sup>
+                                              {card.expiryDate === "1"
+                                                ? "st"
+                                                : card.expiryDate === "2"
+                                                ? "nd"
+                                                : card.expiryDate === "3"
+                                                ? "rd"
+                                                : "th"}{" "}
+                                              <span className="weekly">w</span>
+                                            </sup>{" "}
+                                          </>
+                                        )}
+                                        {card.expiryMonth !== "" &&
+                                          MONTHS[
+                                            parseInt(card.expiryMonth) - 1
+                                          ]}{" "}
+                                        {card.placePrice} {card.option}
                                       </span>{" "}
                                       <span className="exchange text-xxsmall dim">
                                         {card.exchange}
@@ -637,9 +639,12 @@ function App() {
                                       {/* {parseFloat(card.Avg)..toLocaleString("en-IN", {
                                         minimumFractionDigits: 2,
                                       })} */}
-                                      {parseFloat(card.Avg).toLocaleString("en-IN", {
+                                      {parseFloat(card.Avg).toLocaleString(
+                                        "en-IN",
+                                        {
                                           minimumFractionDigits: 2,
-                                        })}{" "}
+                                        }
+                                      )}{" "}
                                     </td>
                                     <td className="order-status right ">
                                       <span
@@ -656,6 +661,10 @@ function App() {
                                   </tr>
                                 );
                               })}
+                              <tr className="show-all-row">
+                                <td></td>{" "}
+                                <td colSpan="7" className="show-all-col"></td>
+                              </tr>
                             </tbody>
                             {/* <tfoot>
                               <tr>
