@@ -87,7 +87,7 @@ function App() {
                         className={`last-price ${
                           header.change[0] === "-"
                             ? "down"
-                            : header.change[0] === "0"
+                            : header.change === "0"
                             ? ""
                             : "up"
                         }`}
@@ -286,9 +286,7 @@ function App() {
                               ) : (
                                 <span className="change-indicator icon icon-chevron-down"></span>
                               )}{" "}
-                              <span className="last-price">
-                                {item.price.toFixed(2)}
-                              </span>
+                              <span className="last-price">{item.price}</span>
                             </span>
                           </div>{" "}
                         </div>
@@ -801,26 +799,26 @@ function App() {
                                           {card.tradingsymbol}{" "}
                                           {card.expiryDate !== "" && (
                                             <>
-                                            {card.expiryDate}
-                                            <sup>
-                                              {card?.expiryDate?.includes?.(
-                                                "1"
-                                              )
-                                                ? "st"
-                                                : card?.expiryDate?.includes?.(
-                                                    "2"
-                                                  )
-                                                ? "nd"
-                                                : card?.expiryDate?.includes?.(
-                                                    "3"
-                                                  )
-                                                ? "rd"
-                                                : "th"}{" "}
-                                              <span className="weekly">
-                                                w
-                                              </span>
-                                            </sup>
-                                          </>
+                                              {card.expiryDate}
+                                              <sup>
+                                                {card?.expiryDate?.includes?.(
+                                                  "1"
+                                                )
+                                                  ? "st"
+                                                  : card?.expiryDate?.includes?.(
+                                                      "2"
+                                                    )
+                                                  ? "nd"
+                                                  : card?.expiryDate?.includes?.(
+                                                      "3"
+                                                    )
+                                                  ? "rd"
+                                                  : "th"}{" "}
+                                                <span className="weekly">
+                                                  w
+                                                </span>
+                                              </sup>
+                                            </>
                                           )}
                                           {card.expiryMonth !== "" &&
                                             MONTHS[
@@ -891,27 +889,27 @@ function App() {
                                         <span className="tradingsymbol">
                                           {card.tradingsymbol}{" "}
                                           {card.expiryDate !== "" && (
-                                           <>
-                                           {card.expiryDate}
-                                           <sup>
-                                             {card?.expiryDate?.includes?.(
-                                               "1"
-                                             )
-                                               ? "st"
-                                               : card?.expiryDate?.includes?.(
-                                                   "2"
-                                                 )
-                                               ? "nd"
-                                               : card?.expiryDate?.includes?.(
-                                                   "3"
-                                                 )
-                                               ? "rd"
-                                               : "th"}{" "}
-                                             <span className="weekly">
-                                               w
-                                             </span>
-                                           </sup>
-                                         </>
+                                            <>
+                                              {card.expiryDate}
+                                              <sup>
+                                                {card?.expiryDate?.includes?.(
+                                                  "1"
+                                                )
+                                                  ? "st"
+                                                  : card?.expiryDate?.includes?.(
+                                                      "2"
+                                                    )
+                                                  ? "nd"
+                                                  : card?.expiryDate?.includes?.(
+                                                      "3"
+                                                    )
+                                                  ? "rd"
+                                                  : "th"}{" "}
+                                                <span className="weekly">
+                                                  w
+                                                </span>
+                                              </sup>
+                                            </>
                                           )}
                                           {card.expiryMonth !== "" &&
                                             MONTHS[

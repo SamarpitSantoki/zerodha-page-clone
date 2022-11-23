@@ -90,7 +90,7 @@ function App() {
                         className={`last-price ${
                           header.change[0] === "-"
                             ? "down"
-                            : header.change[0] === "0"
+                            : header.change === "0"
                             ? ""
                             : "up"
                         }`}
@@ -285,9 +285,7 @@ function App() {
                               ) : (
                                 <span className="change-indicator icon icon-chevron-down"></span>
                               )}{" "}
-                              <span className="last-price">
-                                {item.price.toFixed(2)}
-                              </span>
+                              <span className="last-price">{item.price}</span>
                             </span>
                           </div>{" "}
                         </div>
