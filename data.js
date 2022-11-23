@@ -2,7 +2,7 @@ export const cards = [
   {
     product: 'MIS',
     tradingsymbol: 'BANKNIFTY',
-    expiryDate: '25',
+    expiryDate: '',
     expiryMonth: 8,
     placePrice: 37700,
     option: 'CE',
@@ -10,14 +10,14 @@ export const cards = [
     Qty: 0,
     LTP: 348,
     Avg: 0,
-    pl: '77725.25',
-    Chg: 0,
+    pl: '44000',
+    Chg: '0',
     status: 'closed'
   },
   {
     product: 'MIS',
     tradingsymbol: 'BANKNIFTY',
-    expiryDate: '',
+    expiryDate: '3',
     expiryMonth: 8,
     placePrice: 37700,
     option: 'PE',
@@ -62,22 +62,7 @@ export const cards = [
   {
     product: 'MIS',
     tradingsymbol: 'BANKNIFTY',
-    expiryDate: 4,
-    expiryMonth: 8,
-    placePrice: 37700,
-    option: 'PE',
-    exchange: 'NFO',
-    Qty: 0,
-    LTP: 191,
-    Avg: 0,
-    pl: 3230,
-    Chg: 0,
-    status: 'closed'
-  },
-  {
-    product: 'MIS',
-    tradingsymbol: 'BANKNIFTY',
-    expiryDate: 4,
+    expiryDate: '1',
     expiryMonth: 8,
     placePrice: 37700,
     option: 'PE',
@@ -180,8 +165,18 @@ export const cards = [
     status: 'COMPLETE'
   }
 ];export const SideBarData = [
-  { tradingsymbol: 'BANKNIFTY AUG FUT', change: '0.6', price: 38301.2,event:false },
-  { tradingsymbol: 'HDFCBANK', change: '2.45', price: 1462.05,event:false },
+  {
+    tradingsymbol: 'BANKNIFTY AUG FUT',
+    change: '0.6',
+    price: 38301.2,
+    event: false
+  },
+  {
+    tradingsymbol: 'HDFCBANK',
+    change: '2.45',
+    price: 1462.05,
+    event: false
+  },
   {
     tradingsymbol: 'ONGC',
     change: '-0.15',
