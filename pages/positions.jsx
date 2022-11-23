@@ -514,26 +514,26 @@ function App() {
                                             {card.tradingsymbol}{" "}
                                             {card.expiryDate !== "" && (
                                               <>
-                                              {card.expiryDate}
-                                              <sup>
-                                                {card?.expiryDate?.includes?.(
-                                                  "1"
-                                                )
-                                                  ? "st"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "2"
-                                                    )
-                                                  ? "nd"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "3"
-                                                    )
-                                                  ? "rd"
-                                                  : "th"}{" "}
-                                                <span className="weekly">
-                                                  w
-                                                </span>
-                                              </sup>
-                                            </>
+                                                {card.expiryDate}
+                                                <sup>
+                                                  {card?.expiryDate?.includes?.(
+                                                    "1"
+                                                  )
+                                                    ? "st"
+                                                    : card?.expiryDate?.includes?.(
+                                                        "2"
+                                                      )
+                                                    ? "nd"
+                                                    : card?.expiryDate?.includes?.(
+                                                        "3"
+                                                      )
+                                                    ? "rd"
+                                                    : "th"}{" "}
+                                                  <span className="weekly">
+                                                    w
+                                                  </span>
+                                                </sup>
+                                              </>
                                             )}
                                             {card.expiryMonth !== "" &&
                                               MONTHS[
@@ -571,6 +571,7 @@ function App() {
                                               "en-IN",
                                               {
                                                 minimumFractionDigits: 2,
+                                                signDisplay: "exceptZero",
                                               }
                                             )}
                                           </span>
@@ -683,6 +684,7 @@ function App() {
                                             "en-IN",
                                             {
                                               minimumFractionDigits: 2,
+                                              signDisplay: "exceptZero",
                                             }
                                           )}
                                         </span>
@@ -867,6 +869,7 @@ function App() {
                                             "en-IN",
                                             {
                                               minimumFractionDigits: 2,
+                                              signDisplay: "exceptZero",
                                             }
                                           )}
                                         </span>
@@ -940,6 +943,7 @@ function App() {
                                             "en-IN",
                                             {
                                               minimumFractionDigits: 2,
+                                              signDisplay: "exceptZero",
                                             }
                                           )}
                                         </span>

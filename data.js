@@ -9,9 +9,9 @@ export const cards = [
     exchange: 'NFO',
     Qty: 0,
     LTP: 348,
-    Avg: 0,
-    pl: '44000',
-    Chg: '0',
+    Avg: '0.00',
+    pl: '-34000',
+    Chg: '0.00',
     status: 'closed'
   },
   {
