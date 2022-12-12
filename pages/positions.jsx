@@ -4,6 +4,7 @@ import { useContext, useEffect } from "react";
 import { useState } from "react";
 import LoadingContext from "../context/loadingContext";
 import { cards, EventMessage, headerData, SideBarData } from "../data";
+import { makeOrdinal } from "../helpers/makeOrdinal";
 
 function App() {
   const {
@@ -514,19 +515,10 @@ function App() {
                                               <>
                                                 {card.expiryDate}
                                                 <sup>
-                                                  {card?.expiryDate?.includes?.(
-                                                    "1"
-                                                  )
-                                                    ? "st"
-                                                    : card?.expiryDate?.includes?.(
-                                                        "2"
-                                                      )
-                                                    ? "nd"
-                                                    : card?.expiryDate?.includes?.(
-                                                        "3"
-                                                      )
-                                                    ? "rd"
-                                                    : "th"}{" "}
+                                                  {makeOrdinal(
+                                                    Number(card.expiryDate)
+                                                  )}
+
                                                   <span className="weekly">
                                                     w
                                                   </span>
@@ -619,19 +611,9 @@ function App() {
                                             <>
                                               {card.expiryDate}
                                               <sup>
-                                                {card?.expiryDate?.includes?.(
-                                                  "1"
-                                                )
-                                                  ? "st"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "2"
-                                                    )
-                                                  ? "nd"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "3"
-                                                    )
-                                                  ? "rd"
-                                                  : "th"}{" "}
+                                                {makeOrdinal(
+                                                  Number(card.expiryDate)
+                                                )}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
@@ -801,19 +783,9 @@ function App() {
                                             <>
                                               {card.expiryDate}
                                               <sup>
-                                                {card?.expiryDate?.includes?.(
-                                                  "1"
-                                                )
-                                                  ? "st"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "2"
-                                                    )
-                                                  ? "nd"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "3"
-                                                    )
-                                                  ? "rd"
-                                                  : "th"}{" "}
+                                                {makeOrdinal(
+                                                  Number(card.expiryDate)
+                                                )}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
@@ -892,19 +864,9 @@ function App() {
                                             <>
                                               {card.expiryDate}
                                               <sup>
-                                                {card?.expiryDate?.includes?.(
-                                                  "1"
-                                                )
-                                                  ? "st"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "2"
-                                                    )
-                                                  ? "nd"
-                                                  : card?.expiryDate?.includes?.(
-                                                      "3"
-                                                    )
-                                                  ? "rd"
-                                                  : "th"}{" "}
+                                                {makeOrdinal(
+                                                  Number(card.expiryDate)
+                                                )}{" "}
                                                 <span className="weekly">
                                                   w
                                                 </span>
