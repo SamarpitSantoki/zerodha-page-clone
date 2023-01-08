@@ -4,30 +4,30 @@ export const cards = [
     tradingsymbol: 'NIFTY',
     expiryDate: '15',
     expiryMonth: '12',
-    placePrice: '18600',
+    placePrice: '18700',
     option: 'PE',
     exchange: 'NFO',
     Qty: '0',
-    LTP: '116.75',
+    LTP: '0',
     Avg: '0.00',
-    pl: '+88686.70',
     Chg: '0.00',
-    status: 'closed'
+    status: 'closed',
+    pl: '+60210'
   },
   {
     product: 'MIS',
     tradingsymbol: 'NIFTY',
     expiryDate: '15',
     expiryMonth: '12',
-    placePrice: '18700',
+    placePrice: '18600',
     option: 'PE',
     exchange: 'NFO',
     Qty: '0',
-    LTP: '188.00',
+    LTP: '0',
     Avg: '0.00',
-    pl: '+60210.05',
     Chg: '0.00',
-    status: 'closed'
+    status: 'closed',
+    pl: '+88686'
   }
 ];export const headerData = [
   { tradingsymbol: 'NIFTY 50', price: '18497.15', change: '0.00' },

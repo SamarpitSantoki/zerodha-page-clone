@@ -6,26 +6,25 @@ import Layout from '../../components/Layout'
 import EditableTable from '../../components/Table'
 import { headerData } from '../../data'
 import axios from 'axios'
-function admin() {
-    const [showModal, setShowModal] = useState(false)
-    const [rowData, setRowData] = useState(headerData)
-    const newEntry = {...headerData[0]}
-  
-    console.log(rowData);
+function Admin() {
+  const [showModal, setShowModal] = useState(false);
+  const [rowData, setRowData] = useState(headerData);
+  const newEntry = { ...headerData[0] };
 
-    async function saveData(){
-        const data = rowData.filter(item=>item.tradingsymbol!=='')
-        console.log(data.length);
-        const responce = await axios.post('/api/saveData',{
-            data: data,
-            field:'headerData'
-        })
+  console.log(rowData);
 
-    }
+  async function saveData() {
+    const data = rowData.filter((item) => item.tradingsymbol !== "");
+    console.log(data.length);
+    const responce = await axios.post("/api/saveData", {
+      data: data,
+      field: "headerData",
+    });
+  }
 
-    return (
-        <Layout>
-            {/* <Modal isOpen={showModal} toggle={() => setShowModal(prev => !prev)} >
+  return (
+    <Layout>
+      {/* <Modal isOpen={showModal} toggle={() => setShowModal(prev => !prev)} >
                 <ModalHeader toggle={() => setShowModal(prev => !prev)}>Add Position</ModalHeader>
                 <ModalBody>
                     {positionsColumns.map(item => {
@@ -48,18 +47,32 @@ function admin() {
                     </Button>
                 </ModalFooter>
             </Modal> */}
-            <div style={{
-                margin: 10,
-
-            }}>
-                <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={()=>saveData()}>Save</Button>
-                <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={() => setRowData(prev=>([...prev,newEntry]))}>Add</Button>
-                <EditableTable data={rowData} setData={setRowData} />
-                {/* <DataTable columns={positionsColumns} data={headerData} /> */}
-            </div>
-        </Layout>
-
-    )
+      <div
+        style={{
+          margin: 10,
+        }}
+      >
+        <Button
+          style={{ float: "right", margin: 5 }}
+          size="md"
+          color="primary"
+          onClick={() => saveData()}
+        >
+          Save
+        </Button>
+        <Button
+          style={{ float: "right", margin: 5 }}
+          size="md"
+          color="primary"
+          onClick={() => setRowData((prev) => [...prev, newEntry])}
+        >
+          Add
+        </Button>
+        <EditableTable data={rowData} setData={setRowData} />
+        {/* <DataTable columns={positionsColumns} data={headerData} /> */}
+      </div>
+    </Layout>
+  );
 }
 
-export default admin
+export default Admin;

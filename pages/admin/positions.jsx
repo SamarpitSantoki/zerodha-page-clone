@@ -1,24 +1,15 @@
 
 import { useState } from "react";
 import { useEffect } from "react";
-import {
-  Button,
-  Modal,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-  Input,
-  FormGroup,
-  Label,
-} from "reactstrap";
+import { Button } from "reactstrap";
 import Layout from "../../components/Layout";
 import EditableTable from "../../components/Table";
 import { cards } from "../../data";
 import axios from "axios";
 function Admin() {
+  const [rowData, setRowData] = useState(cards);
   const [showModal, setShowModal] = useState(false);
   const [positionsColumns, setpositionsColumns] = useState([]);
-  const [rowData, setRowData] = useState(cards);
 
   function getColumns(data) {
     const columns = Object.keys(data[0])?.map((item) => ({

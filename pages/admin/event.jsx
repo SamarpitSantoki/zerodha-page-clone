@@ -6,25 +6,26 @@ import Layout from '../../components/Layout'
 import EditableTable from '../../components/Table'
 import { EventMessage } from '../../data'
 import axios from 'axios'
-function admin() {
-    const [showModal, setShowModal] = useState(false)
-    const [rowData, setRowData] = useState([{
-        EventMessage: EventMessage
-    }])
-  
-    console.log(rowData);
+function Admin() {
+  const [showModal, setShowModal] = useState(false);
+  const [rowData, setRowData] = useState([
+    {
+      EventMessage: EventMessage,
+    },
+  ]);
 
-    async function saveData(){
-        const responce = await axios.post('/api/saveData',{
-            data: rowData[0].EventMessage,
-            field:'EventMessage'
-        })
+  console.log(rowData);
 
-    }
+  async function saveData() {
+    const responce = await axios.post("/api/saveData", {
+      data: rowData[0].EventMessage,
+      field: "EventMessage",
+    });
+  }
 
-    return (
-        <Layout>
-            {/* <Modal isOpen={showModal} toggle={() => setShowModal(prev => !prev)} >
+  return (
+    <Layout>
+      {/* <Modal isOpen={showModal} toggle={() => setShowModal(prev => !prev)} >
                 <ModalHeader toggle={() => setShowModal(prev => !prev)}>Add Position</ModalHeader>
                 <ModalBody>
                     {positionsColumns.map(item => {
@@ -47,18 +48,25 @@ function admin() {
                     </Button>
                 </ModalFooter>
             </Modal> */}
-            <div style={{
-                margin: 10,
-
-            }}>
-                <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={()=>saveData()}>Save</Button>
-                {/* <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={() => setRowData(prev=>([...prev,newEntry]))}>Add</Button> */}
-                <EditableTable data={rowData} setData={setRowData} />
-                {/* <DataTable columns={positionsColumns} data={EventMessage} /> */}
-            </div>
-        </Layout>
-
-    )
+      <div
+        style={{
+          margin: 10,
+        }}
+      >
+        <Button
+          style={{ float: "right", margin: 5 }}
+          size="md"
+          color="primary"
+          onClick={() => saveData()}
+        >
+          Save
+        </Button>
+        {/* <Button style={{ float: 'right', margin: 5 }} size='md' color='primary' onClick={() => setRowData(prev=>([...prev,newEntry]))}>Add</Button> */}
+        <EditableTable data={rowData} setData={setRowData} />
+        {/* <DataTable columns={positionsColumns} data={EventMessage} /> */}
+      </div>
+    </Layout>
+  );
 }
 
-export default admin
+export default Admin;
